@@ -20,7 +20,7 @@ class MainPage extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.system,
         theme: AutiTheme.lightThemeData(context),
-        initialRoute: AutiRoutes.homeRoute,
+        initialRoute: AutiRoutes.doctorRoute,
         routes: {
           AutiRoutes.homeRoute: (context) => const HomePage(),
           AutiRoutes.onBoardingHomeRoute: (context) => const OnBoardingHome(),
