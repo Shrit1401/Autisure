@@ -6,6 +6,7 @@ class DoctorInfo {
   final String name;
   final String specialist;
   final String contactNo;
+  final bool isAssured;
   final String location;
   final String desc;
   final String imageUrl;
@@ -15,6 +16,7 @@ class DoctorInfo {
     this.name,
     this.specialist,
     this.contactNo,
+    this.isAssured,
     this.location,
     this.desc,
     this.imageUrl,
@@ -25,6 +27,7 @@ class DoctorInfo {
     String? name,
     String? specialist,
     String? contactNo,
+    bool? isAssured,
     String? location,
     String? desc,
     String? imageUrl,
@@ -34,6 +37,7 @@ class DoctorInfo {
       name ?? this.name,
       specialist ?? this.specialist,
       contactNo ?? this.contactNo,
+      isAssured ?? this.isAssured,
       location ?? this.location,
       desc ?? this.desc,
       imageUrl ?? this.imageUrl,
@@ -46,6 +50,7 @@ class DoctorInfo {
       'name': name,
       'specialist': specialist,
       'contactNo': contactNo,
+      'isAssured': isAssured,
       'location': location,
       'desc': desc,
       'imageUrl': imageUrl,
@@ -58,6 +63,7 @@ class DoctorInfo {
       map['name'] as String,
       map['specialist'] as String,
       map['contactNo'] as String,
+      map['isAssured'] as bool,
       map['location'] as String,
       map['desc'] as String,
       map['imageUrl'] as String,
@@ -71,18 +77,19 @@ class DoctorInfo {
 
   @override
   String toString() {
-    return 'DoctorInfo(id: $id, name: $name, specialist: $specialist, contactNo: $contactNo, location: $location, desc: $desc, imageUrl: $imageUrl)';
+    return 'DoctorInfo(id: $id, name: $name, specialist: $specialist, contactNo: $contactNo, isAssured: $isAssured, location: $location, desc: $desc, imageUrl: $imageUrl)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-
+  
     return other is DoctorInfo &&
         other.id == id &&
         other.name == name &&
         other.specialist == specialist &&
         other.contactNo == contactNo &&
+        other.isAssured == isAssured &&
         other.location == location &&
         other.desc == desc &&
         other.imageUrl == imageUrl;
@@ -94,6 +101,7 @@ class DoctorInfo {
         name.hashCode ^
         specialist.hashCode ^
         contactNo.hashCode ^
+        isAssured.hashCode ^
         location.hashCode ^
         desc.hashCode ^
         imageUrl.hashCode;

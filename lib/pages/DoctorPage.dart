@@ -1,11 +1,15 @@
+// ignore_for_file: public_mem  ber_api_docs, sort_constructors_first
 // ignore_for_file: file_names
-import 'package:autisure/models/doctors.dart';
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http;
 import 'package:iconsax/iconsax.dart';
 import 'package:velocity_x/velocity_x.dart';
-import 'dart:convert';
+
+import 'package:autisure/models/doctors.dart';
+
 import '../utilis/themes.dart';
 import '../widgets/common/Drawer/AutiDrawer.dart';
 
@@ -23,8 +27,13 @@ class _DoctorState extends State<Doctor> {
     loadData();
   }
 
+  final url = "https://api.jsonbin.io/b/62a820fc449a1f382107ff5f/2";
+
   void loadData() async {
-    var doctorJson = await rootBundle.loadString("assets/Data/Doctors.json");
+    //local file
+    // var doctorJson = await rootBundle.loadString("assets/Data/Doctors.json");
+    final response = await http.get(Uri.parse(url));
+    final doctorJson = response.body;
     var doctorDecodedData = jsonDecode(doctorJson);
     var doctorInfo = doctorDecodedData["doctors"];
     DoctorModel.doctorInfos = List.from(doctorInfo)
@@ -62,9 +71,11 @@ class _DoctorState extends State<Doctor> {
               if (DoctorModel.doctorInfos.isNotEmpty)
                 const DoctorList().expand()
               else
-                CircularProgressIndicator(
-                  color: AutiTheme.primary,
-                ).centered()
+                Expanded(
+                  child: CircularProgressIndicator(
+                    color: AutiTheme.primary,
+                  ).centered().py16(),
+                )
             ],
           ),
         ));
@@ -99,37 +110,23 @@ class DoctorItemWidget extends StatelessWidget {
       children: [
         DoctorListImage(image: item.imageUrl),
         Expanded(
-            child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            "Dr. ${item.name}".text.lg.color(AutiTheme.white).bold.make(),
-            item.specialist.text.color(AutiTheme.creamColor).make(),
-            10.heightBox,
-            ButtonBar(
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Iconsax.award5,
-                    color: AutiTheme.white,
-                    semanticLabel: "Autisure Assured",
-                  ),
-                ),
-                IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      CupertinoIcons.arrow_right_circle_fill,
-                      color: AutiTheme.white,
-                    ))
-              ],
-            )
-          ],
-        ))
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              "Dr. ${item.name}".text.lg.color(AutiTheme.white).bold.make(),
+              item.specialist.text.color(AutiTheme.creamColor).make(),
+              10.heightBox,
+              DoctorButtonBar(
+                item: item,
+              )
+            ],
+          ),
+        )
       ],
     ))
         .color(AutiTheme.primary)
-        .shadow2xl
+        .shadowSm
         .rounded
         .square(150)
         .make()
@@ -147,11 +144,94 @@ class DoctorListImage extends StatelessWidget {
     return Image.network(image)
         .box
         .rounded
-        .shadowSm
         .p8
         .color(AutiTheme.creamColor)
         .make()
         .p16()
         .w40(context);
+  }
+}
+
+// ignore: must_be_immutable
+class DoctorButtonBar extends StatelessWidget {
+  DoctorInfo item;
+  DoctorButtonBar({
+    Key? key,
+    required this.item,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ButtonBar(
+      alignment: MainAxisAlignment.spaceAround,
+      children: [
+        IconButton(
+            onPressed: () {},
+            icon: Icon(
+              CupertinoIcons.arrow_right_circle_fill,
+              color: AutiTheme.white,
+            )),
+        if (item.isAssured) const AssuredBadgeDoctor(),
+      ],
+    );
+  }
+}
+
+class AssuredBadgeDoctor extends StatelessWidget {
+  const AssuredBadgeDoctor({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        showDialog(
+            context: context,
+            builder: (context) {
+              return Dialog(
+                  backgroundColor: AutiTheme.primary,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12)),
+                  elevation: 20,
+                  child: SizedBox(
+                      height: 150, //use height
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              children: [
+                                "Atisure Assured Doctor"
+                                    .text
+                                    .xl2
+                                    .bold
+                                    .color(AutiTheme.white)
+                                    .make(),
+                                "Autisure Assure Doctors are the verified doctors wo are verfied by us give them a try they one of the best doctors"
+                                    .text
+                                    .color(AutiTheme.white)
+                                    .center
+                                    .make(),
+                              ],
+                            ),
+                            ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                    elevation: 0,
+                                    primary: AutiTheme.white,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(12))),
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child:
+                                    "OK".text.color(AutiTheme.primary).make())
+                          ])).p16());
+            });
+      },
+      icon: Icon(
+        Iconsax.award5,
+        color: AutiTheme.white,
+        semanticLabel: "Autisure Assured",
+      ),
+    );
   }
 }
