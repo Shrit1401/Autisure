@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart' show Lottie;
 import 'package:velocity_x/velocity_x.dart';
 
+import '../widgets/common/ExitPopup.dart';
+
 class OnBoardingStart extends StatefulWidget {
   const OnBoardingStart({Key? key}) : super(key: key);
 
@@ -32,72 +34,76 @@ class _OnBoardingStartState extends State<OnBoardingStart> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: AutiTheme.primary,
-      body: Column(
-        children: [
-          Expanded(
-            child: PageView.builder(
-              controller: _pageController,
-              itemCount: onboardingContent.length,
-              onPageChanged: (int index) {
-                setState(() {
-                  currentIndex = index;
-                });
-              },
-              itemBuilder: (_, index) {
-                return Column(children: [
-                  Lottie.network(onboardingContent[index].image,
-                      height: 300, animate: true),
-                  40.heightBox,
-                  onboardingContent[index]
-                      .title
-                      .text
-                      .textStyle(const TextStyle(fontWeight: FontWeight.bold))
-                      .xl4
-                      .center
-                      .color(AutiTheme.white)
-                      .make(),
-                ]).p32();
-              },
+    return WillPopScope(
+      onWillPop: () => showExitPopup(context),
+      child: Scaffold(
+        backgroundColor: AutiTheme.primary,
+        body: Column(
+          children: [
+            Expanded(
+              child: PageView.builder(
+                controller: _pageController,
+                itemCount: onboardingContent.length,
+                onPageChanged: (int index) {
+                  setState(() {
+                    currentIndex = index;
+                  });
+                },
+                itemBuilder: (_, index) {
+                  return Column(children: [
+                    Lottie.network(onboardingContent[index].image,
+                        height: 300, animate: true),
+                    40.heightBox,
+                    onboardingContent[index]
+                        .title
+                        .text
+                        .textStyle(const TextStyle(fontWeight: FontWeight.bold))
+                        .xl4
+                        .center
+                        .color(AutiTheme.white)
+                        .make(),
+                  ]).p32();
+                },
+              ),
             ),
-          ),
-          Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                onboardingContent.length,
-                (index) => buildDot(index),
-              )),
-          25.heightBox,
-          Container(
-            height: 60,
-            margin: const EdgeInsets.only(bottom: 40, left: 40, right: 40),
-            width: double.infinity,
-            child: ElevatedButton(
-              onPressed: () {
-                if (currentIndex != onboardingContent.length - 1) {
-                  _pageController.nextPage(
-                      duration: const Duration(milliseconds: 100),
-                      curve: Curves.bounceIn);
-                } else {
-                  Navigator.pushNamed(context, AutiRoutes.onBoardingHomeRoute);
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                  primary: AutiTheme.white,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16))),
-              child: (currentIndex == onboardingContent.length - 1
-                      ? 'Continue'
-                      : 'Get Started')
-                  .text
-                  .color(AutiTheme.primary)
-                  .lg
-                  .bold
-                  .make(),
-            ),
-          )
-        ],
+            Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                  onboardingContent.length,
+                  (index) => buildDot(index),
+                )),
+            25.heightBox,
+            Container(
+              height: 60,
+              margin: const EdgeInsets.only(bottom: 40, left: 40, right: 40),
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  if (currentIndex != onboardingContent.length - 1) {
+                    _pageController.nextPage(
+                        duration: const Duration(milliseconds: 100),
+                        curve: Curves.bounceIn);
+                  } else {
+                    Navigator.pushNamed(
+                        context, AutiRoutes.onBoardingHomeRoute);
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                    primary: AutiTheme.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16))),
+                child: (currentIndex == onboardingContent.length - 1
+                        ? 'Continue'
+                        : 'Get Started')
+                    .text
+                    .color(AutiTheme.primary)
+                    .lg
+                    .bold
+                    .make(),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
