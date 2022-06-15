@@ -117,7 +117,7 @@ class DoctorModel {
 void doctorLoadData() async {
   //local file
   // var doctorJson = await rootBundle.loadString("assets/Data/Doctors.json");
-  const url = "https://api.jsonbin.io/b/62a820fc449a1f382107ff5f/3";
+  const url = "https://api.jsonbin.io/b/62a820fc449a1f382107ff5f/4";
   final response = await http.get(Uri.parse(url));
   final doctorJson = response.body;
   var doctorDecodedData = jsonDecode(doctorJson);

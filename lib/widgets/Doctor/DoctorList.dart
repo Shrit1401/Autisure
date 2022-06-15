@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../../models/doctors.dart';
 import '../../pages/DoctorDetailPage.dart';
@@ -19,8 +20,10 @@ class DoctorList extends StatelessWidget {
         return InkWell(
             onTap: () => Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => DoctorDetailPage(item: doctorInfo))),
+                PageTransition(
+                    type: PageTransitionType.rightToLeft,
+                    duration: const Duration(milliseconds: 300),
+                    child: DoctorDetailPage(item: doctorInfo))),
             child: DoctorItemWidget(item: doctorInfo));
       },
     );

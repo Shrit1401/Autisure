@@ -6,6 +6,7 @@ class AutiTheme {
   static ThemeData lightThemeData(BuildContext context) => ThemeData(
         fontFamily: GoogleFonts.poppins().fontFamily,
         primaryColor: primary,
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: primary),
       );
 
   //colors
