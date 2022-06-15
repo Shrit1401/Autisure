@@ -26,6 +26,8 @@ class AutiDrawerListTile extends StatelessWidget {
         color: AutiTheme.white,
       ).pOnly(left: 10),
       onTap: () {
+
+
         Navigator.popUntil(context, (route) {
           if (route.settings.name == routeName) {
             isNewRouteSameAsCurrent = true;
@@ -35,6 +37,7 @@ class AutiDrawerListTile extends StatelessWidget {
         });
 
         if (!isNewRouteSameAsCurrent) {
+          // wait some time
           Navigator.pushReplacementNamed(context, routeName);
         }
       },

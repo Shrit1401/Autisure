@@ -10,6 +10,7 @@ import 'package:autisure/models/doctors.dart';
 
 import '../utilis/themes.dart';
 import '../widgets/Doctor/DoctorList.dart';
+import '../widgets/Doctor/DoctorShimmerWidget.dart';
 import '../widgets/common/Drawer/AutiDrawer.dart';
 import '../widgets/common/ExitPopup.dart';
 
@@ -48,6 +49,10 @@ class _DoctorState extends State<Doctor> {
       onWillPop: () => showExitPopup(context),
       child: Scaffold(
           appBar: AppBar(
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(
+                bottom: Radius.circular(20),
+              )),
               centerTitle: true,
               backgroundColor: AutiTheme.primary,
               elevation: 0,
@@ -75,17 +80,25 @@ class _DoctorState extends State<Doctor> {
                     .bold
                     .color(AutiTheme.primary)
                     .make(),
+
+                
+
                 DoctorModel.doctorInfos.isNotEmpty
                     ? const Expanded(child: DoctorList())
                     :
-                  Expanded(
-                    child: CircularProgressIndicator(
-                      color: AutiTheme.primary,
-                    ).centered().py16(),
-                  )
+                  ListView.builder(
+                        itemCount: 10,
+                        itemBuilder: (context, index) {
+                          return buildDoctorShimmer();
+                        },
+                      ).expand()
               ],
             ),
           )),
     );
   }
 }
+
+Widget buildDoctorShimmer() => const ListTile(
+      title: DoctorShimmerWidget.circular(height: 150, width: 80),
+    );

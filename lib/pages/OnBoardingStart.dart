@@ -4,7 +4,6 @@ import 'package:autisure/utilis/routes.dart';
 import 'package:autisure/utilis/themes.dart';
 import 'package:autisure/widgets/OnBoardingScreen/onBoardScreenStartingContect.dart';
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart' show Lottie;
 import 'package:velocity_x/velocity_x.dart';
 
 import '../widgets/common/ExitPopup.dart';
@@ -51,8 +50,7 @@ class _OnBoardingStartState extends State<OnBoardingStart> {
                 },
                 itemBuilder: (_, index) {
                   return Column(children: [
-                    Lottie.network(onboardingContent[index].image,
-                        height: 300, animate: true),
+                    Image.asset(onboardingContent[index].image, height: 300),
                     40.heightBox,
                     onboardingContent[index]
                         .title

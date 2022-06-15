@@ -24,11 +24,14 @@ class DoctorSuggestionList extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.network(
-            item.imageUrl,
-            width: 100,
-            height: 100,
-          ).cornerRadius(12),
+          Hero(
+            tag: Key(item.name),
+            child: Image.network(
+              item.imageUrl,
+              width: 100,
+              height: 100,
+            ).cornerRadius(12),
+          ),
           10.heightBox,
           Column(
             children: [

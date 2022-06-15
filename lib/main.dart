@@ -1,4 +1,5 @@
 import 'package:autisure/pages/DoctorPage.dart';
+import 'package:autisure/pages/Market.dart';
 import 'package:autisure/pages/OnBoardingHome.dart';
 import 'package:autisure/pages/OnBoardingStart.dart';
 import 'package:autisure/pages/homePage.dart';
@@ -20,12 +21,13 @@ class MainPage extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.system,
         theme: AutiTheme.lightThemeData(context),
-        initialRoute: AutiRoutes.onBoardingStartRoute,
+        initialRoute: AutiRoutes.homeRoute,
         routes: {
           AutiRoutes.homeRoute: (context) => const HomePage(),
           AutiRoutes.onBoardingHomeRoute: (context) => const OnBoardingHome(),
           AutiRoutes.onBoardingStartRoute: (context) => const OnBoardingStart(),
           AutiRoutes.doctorRoute: (context) => const Doctor(),
+          AutiRoutes.marketRoute: (context) => const Market(),
         });
   }
 }

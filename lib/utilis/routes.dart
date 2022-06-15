@@ -4,4 +4,5 @@ class AutiRoutes {
   static String homeRoute = "/";
   static String doctorRoute = "/doctor";
   static String doctorDetailsRoute = "/Docdetails";
+  static String marketRoute = "/market";
 }

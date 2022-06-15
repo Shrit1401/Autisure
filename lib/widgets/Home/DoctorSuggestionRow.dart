@@ -3,13 +3,24 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../models/doctors.dart';
+import '../../pages/DoctorDetailPage.dart';
 import 'DoctorSuggestionList.dart';
 
 class DoctorSuggestionRow extends StatelessWidget {
   const DoctorSuggestionRow({Key? key}) : super(key: key);
+
+  void doctorDetail(context, DoctorInfo doctorInfo) {
+    Navigator.push(
+        context,
+        PageTransition(
+            type: PageTransitionType.rightToLeft,
+            duration: const Duration(milliseconds: 300),
+            child: DoctorDetailPage(item: doctorInfo)));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +31,25 @@ class DoctorSuggestionRow extends StatelessWidget {
         : rand2++;
     return Row(
       children: [
-        DoctorSuggestionList(
-          // genrate random number
-          item: DoctorModel.doctorInfos[rand1],
-        ).pOnly(right: 24),
-        DoctorSuggestionList(
-          item: DoctorModel.doctorInfos[rand2],
-        ).pOnly(right: 24),
-        DoctorSuggestionList(
-          item: DoctorModel.doctorInfos[rand3],
-        ).pOnly(right: 24),
+        InkWell(
+          onTap: () => doctorDetail(context, DoctorModel.doctorInfos[rand1]),
+          child: DoctorSuggestionList(
+            // genrate random number
+            item: DoctorModel.doctorInfos[rand1],
+          ).pOnly(right: 24),
+        ),
+        InkWell(
+          onTap: () => doctorDetail(context, DoctorModel.doctorInfos[rand2]),
+          child: DoctorSuggestionList(
+            item: DoctorModel.doctorInfos[rand2],
+          ).pOnly(right: 24),
+        ),
+        InkWell(
+          onTap: () => doctorDetail(context, DoctorModel.doctorInfos[rand3]),
+          child: DoctorSuggestionList(
+            item: DoctorModel.doctorInfos[rand3],
+          ).pOnly(right: 24),
+        ),
       ],
     );
   }

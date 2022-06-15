@@ -62,10 +62,10 @@ class AutiDrawer extends StatelessWidget {
             Divider(
               color: AutiTheme.white.withAlpha(120),
             ),
-            const AutiDrawerListTile(
+            AutiDrawerListTile(
                 title: "Autism Market",
                 icon: CupertinoIcons.bag_fill,
-                routeName: ""),
+                routeName: AutiRoutes.marketRoute),
             Divider(
               color: AutiTheme.white.withAlpha(120),
             ),

@@ -12,15 +12,15 @@ class OnBoardingScreenStartContent {
 
 List<OnBoardingScreenStartContent> onboardingContent = [
   OnBoardingScreenStartContent(
-    image: 'https://assets8.lottiefiles.com/packages/lf20_uavyvaxw.json',
+    image: 'assets/OnBoard/consulation.png',
     title: 'Check If Your Kid Is Autisitc Or Not',
   ),
   OnBoardingScreenStartContent(
-    image: 'https://assets2.lottiefiles.com/packages/lf20_gnh15vxc.json',
+    image: 'assets/OnBoard/doctorInAPhone.png',
     title: 'Get Query From Nearby and Best Doctors ',
   ),
   OnBoardingScreenStartContent(
-    image: 'https://assets5.lottiefiles.com/packages/lf20_xkvbd64n.json',
+    image: 'assets/OnBoard/sports.png',
     title: 'Get Right Equimpents For Your Child',
   ),
 ];

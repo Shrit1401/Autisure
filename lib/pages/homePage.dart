@@ -56,6 +56,10 @@ class _HomePageState extends State<HomePage> {
             centerTitle: true,
             backgroundColor: AutiTheme.primary,
             elevation: 0,
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(20),
+            )),
             leading: Builder(
               builder: (context) => IconButton(
                 icon: Image.asset(
@@ -88,7 +92,10 @@ class _HomePageState extends State<HomePage> {
                             .centered()
                             .expand(),
                   )
-              )
+              ),
+
+              
+              
             ],
           ).p16(),
         ),

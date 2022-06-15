@@ -49,7 +49,8 @@ class DoctorDetailPage extends StatelessWidget {
           dialNumber(phoneNumber: item.contactNo, context: context);
         },
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
+          padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
+          elevation: 0,
           primary: AutiTheme.white,
         ),
         child: "Call on ${item.contactNo}"
@@ -59,7 +60,7 @@ class DoctorDetailPage extends StatelessWidget {
             .color(AutiTheme.primary)
             .make(),
         // color: AutiTheme.primary,
-      ).pLTRB(10, 5, 10, 5),
+      ).pLTRB(15, 5, 15, 5),
       body: SingleChildScrollView(
         child: Column(
           children: [
