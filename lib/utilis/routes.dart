@@ -3,4 +3,5 @@ class AutiRoutes {
   static String onBoardingHomeRoute = "/onBoardingHome";
   static String homeRoute = "/";
   static String doctorRoute = "/doctor";
+  static String doctorDetailsRoute = "/Docdetails";
 }

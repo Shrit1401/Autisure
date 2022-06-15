@@ -18,7 +18,7 @@ class DoctorItemWidget extends StatelessWidget {
             child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        DoctorListImage(image: item.imageUrl),
+        Hero(tag: Key(item.name), child: DoctorListImage(image: item.imageUrl)),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +40,6 @@ class DoctorItemWidget extends StatelessWidget {
         .rounded
         .square(150)
         .make()
-        .onTap(() {})
         .py16();
   }
 }

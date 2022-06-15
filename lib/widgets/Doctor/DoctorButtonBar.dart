@@ -6,6 +6,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../models/doctors.dart';
+import '../../pages/DoctorDetailPage.dart';
 import '../../utilis/themes.dart';
 
 class DoctorButtonBar extends StatelessWidget {
@@ -21,7 +22,10 @@ class DoctorButtonBar extends StatelessWidget {
       alignment: MainAxisAlignment.spaceAround,
       children: [
         IconButton(
-            onPressed: () {},
+            onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DoctorDetailPage(item: item))),
             icon: Icon(
               CupertinoIcons.arrow_right_circle_fill,
               color: AutiTheme.white,

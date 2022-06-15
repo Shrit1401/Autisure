@@ -27,7 +27,7 @@ class _DoctorState extends State<Doctor> {
     loadData();
   }
 
-  final url = "https://api.jsonbin.io/b/62a820fc449a1f382107ff5f/2";
+  final url = "https://api.jsonbin.io/b/62a820fc449a1f382107ff5f/3";
 
   void loadData() async {
     //local file
@@ -75,9 +75,9 @@ class _DoctorState extends State<Doctor> {
                     .bold
                     .color(AutiTheme.primary)
                     .make(),
-                if (DoctorModel.doctorInfos.isNotEmpty)
-                  const DoctorList().expand()
-                else
+                DoctorModel.doctorInfos.isNotEmpty
+                    ? const Expanded(child: DoctorList())
+                    :
                   Expanded(
                     child: CircularProgressIndicator(
                       color: AutiTheme.primary,
@@ -89,4 +89,3 @@ class _DoctorState extends State<Doctor> {
     );
   }
 }
-

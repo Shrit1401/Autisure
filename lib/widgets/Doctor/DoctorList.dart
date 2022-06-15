@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/doctors.dart';
+import '../../pages/DoctorDetailPage.dart';
 import 'DoctorItemWidget.dart';
 
 class DoctorList extends StatelessWidget {
@@ -15,7 +16,12 @@ class DoctorList extends StatelessWidget {
       itemCount: DoctorModel.doctorInfos.length,
       itemBuilder: (context, index) {
         final doctorInfo = DoctorModel.doctorInfos[index];
-        return DoctorItemWidget(item: doctorInfo);
+        return InkWell(
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DoctorDetailPage(item: doctorInfo))),
+            child: DoctorItemWidget(item: doctorInfo));
       },
     );
   }

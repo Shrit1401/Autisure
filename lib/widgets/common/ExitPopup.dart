@@ -14,12 +14,13 @@ Future<bool> showExitPopup(context) async {
             height: 100,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                   "Do you want to exit?",
-                  style: TextStyle(color: AutiTheme.white),
+                  style: TextStyle(color: AutiTheme.white, fontSize: 20),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 Row(
                   children: [
                     Expanded(
@@ -28,7 +29,10 @@ Future<bool> showExitPopup(context) async {
                           exit(0);
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: AutiTheme.primary.withAlpha(900),
+                            elevation: 0,
+                            side:
+                                BorderSide(width: 2.0, color: AutiTheme.white),
+                            primary: AutiTheme.primary
                         ),
                         child: Text(
                           "Yes",
@@ -44,6 +48,7 @@ Future<bool> showExitPopup(context) async {
                       },
                       style: ElevatedButton.styleFrom(
                         primary: AutiTheme.white,
+                        elevation: 0
                       ),
                       child: const Text("No",
                           style: TextStyle(color: Colors.black)),

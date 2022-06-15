@@ -1,14 +1,50 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: file_names
+import 'package:http/http.dart' as http;
 
-import 'package:autisure/utilis/routes.dart';
-import 'package:autisure/utilis/themes.dart';
-import 'package:autisure/widgets/common/Drawer/AutiDrawer.dart';
-import 'package:autisure/widgets/common/ExitPopup.dart';
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class HomePage extends StatelessWidget {
+import 'package:autisure/models/doctors.dart';
+import 'package:autisure/utilis/themes.dart';
+import 'package:autisure/widgets/common/Drawer/AutiDrawer.dart';
+import 'package:autisure/widgets/common/ExitPopup.dart';
+
+import '../widgets/Home/DoctorSuggestionRow.dart';
+import '../widgets/Home/HomeBtn.dart';
+import '../widgets/Home/HomePageHeading.dart';
+
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    loadData();
+    setState(() {});
+  }
+
+  void loadData() async {
+    const url = "https://api.jsonbin.io/b/62a820fc449a1f382107ff5f/2";
+    final response = await http.get(Uri.parse(url));
+    final doctorJson = response.body;
+    var doctorDecodedData = jsonDecode(doctorJson);
+    var doctorInfo = doctorDecodedData["doctors"];
+    DoctorModel.doctorInfos = List.from(doctorInfo)
+        .map<DoctorInfo>((item) => DoctorInfo.fromMap(item))
+        .toList();
+    setState(() {});
+  }
+ 
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -45,155 +81,18 @@ class HomePage extends StatelessWidget {
               .20.heightBox,
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    const DoctorSuggestionList().pOnly(right: 24),
-                    const DoctorSuggestionList().pOnly(right: 24),
-                    const DoctorSuggestionList().pOnly(right: 24),
-                  ],
-                ),
+                  child: Container(
+                    child: DoctorModel.doctorInfos.isNotEmpty
+                        ? const DoctorSuggestionRow()
+                        : CircularProgressIndicator(color: AutiTheme.primary)
+                            .centered()
+                            .expand(),
+                  )
               )
             ],
           ).p16(),
         ),
       ),
     );
-  }
-}
-
-class HomePageHeading extends StatelessWidget {
-  const HomePageHeading({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        "Abilty In Disablity"
-            .text
-            .medium
-            .color(AutiTheme.primary)
-            .xl5
-            .make()
-            .p0(),
-        "Autisure help in every way"
-            .text
-            .color(AutiTheme.primary)
-            .lg
-            .align(TextAlign.left)
-            .make()
-            .p0(),
-        10.heightBox,
-      ],
-    );
-  }
-}
-
-class FunFactBtn extends StatelessWidget {
-  const FunFactBtn({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return OutlinedButton(
-            onPressed: () {},
-            style: OutlinedButton.styleFrom(
-                primary: AutiTheme.primary,
-                side: BorderSide(
-                    width: 5.0,
-                    style: BorderStyle.solid,
-                    color: AutiTheme.primary),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18),
-                )),
-            child: "Gluten food may help in development of these kids"
-                .text
-                .center
-                .medium
-                .color(Colors.black)
-                .xl
-                .make()
-                .p(8))
-        .px12();
-  }
-}
-
-class AutismTestButton extends StatelessWidget {
-  const AutismTestButton({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-                primary: AutiTheme.primary,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(18),
-                )),
-            child:
-                "Check out the test to clarify if your kid is autistic or not"
-                    .text
-                    .center
-                    .bold
-                    .color(AutiTheme.white)
-                    .xl
-                    .make()
-                    .p(8))
-        .px12();
-  }
-}
-
-class DoctorSuggestionHead extends StatelessWidget {
-  const DoctorSuggestionHead({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        "Check Out Some Doctors".text.xl2.bold.make(),
-        TextButton(
-            onPressed: () {
-              Navigator.restorablePushReplacementNamed(
-                  context, AutiRoutes.doctorRoute);
-            },
-            style: TextButton.styleFrom(primary: AutiTheme.primary),
-            child: "See More".text.lg.makeCentered().pOnly(top: 2)),
-      ],
-    ).px8();
-  }
-}
-
-class DoctorSuggestionList extends StatelessWidget {
-  const DoctorSuggestionList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: AutiTheme.primary,
-      height: 250,
-      width: 250,
-      child: Column(
-        children: [
-          Image.network(
-                  "https://t4.ftcdn.net/jpg/02/60/04/09/360_F_260040900_oO6YW1sHTnKxby4GcjCvtypUCWjnQRg5.jpg")
-              .cornerRadius(12),
-          10.heightBox,
-          Column(
-            children: [
-              "Dr. Rajesh Sharma".text.xl2.color(AutiTheme.white).bold.make(),
-              5.heightBox,
-              "Autisitc Specilist"
-                  .text
-                  .medium
-                  .color(AutiTheme.white)
-                  .bold
-                  .make(),
-            ],
-          )
-        ],
-      ).p16(),
-    ).cornerRadius(16);
   }
 }
