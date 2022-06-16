@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-class DoctorShimmerWidget extends StatelessWidget {
+class ShimmerWidget extends StatelessWidget {
   final double height, width;
   final ShapeBorder shapeBorder;
 
-  const DoctorShimmerWidget.circular({
+  const ShimmerWidget.circular({
     required this.width,
     required this.height,
     this.shapeBorder = const RoundedRectangleBorder(

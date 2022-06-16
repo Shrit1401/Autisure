@@ -6,7 +6,7 @@ import 'package:autisure/widgets/OnBoardingScreen/onBoardScreenStartingContect.d
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../widgets/common/ExitPopup.dart';
+import '../../widgets/common/ExitPopup.dart';
 
 class OnBoardingStart extends StatefulWidget {
   const OnBoardingStart({Key? key}) : super(key: key);

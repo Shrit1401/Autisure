@@ -6,7 +6,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../models/doctors.dart';
-import '../../pages/DoctorDetailPage.dart';
+import '../../pages/Doctor/DoctorDetailPage.dart';
 import '../../utilis/themes.dart';
 
 class DoctorButtonBar extends StatelessWidget {

@@ -6,7 +6,7 @@ import 'package:velocity_x/velocity_x.dart';
 import '../../models/doctors.dart';
 import '../../utilis/themes.dart';
 import 'DoctorButtonBar.dart';
-import 'DoctorListImage.dart';
+import '../common/ListImage.dart';
 
 class DoctorItemWidget extends StatelessWidget {
   final DoctorInfo item;
@@ -18,7 +18,7 @@ class DoctorItemWidget extends StatelessWidget {
             child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Hero(tag: Key(item.name), child: DoctorListImage(image: item.imageUrl)),
+        Hero(tag: Key(item.name), child: ListImage(image: item.imageUrl)),
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

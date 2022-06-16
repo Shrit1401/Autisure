@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../models/doctors.dart';
+import '../../models/doctors.dart';
 
 class DoctorDetailPage extends StatelessWidget {
   final DoctorInfo item;

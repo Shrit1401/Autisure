@@ -1,5 +1,5 @@
-import 'package:autisure/pages/DoctorPage.dart';
-import 'package:autisure/pages/Market.dart';
+import 'package:autisure/pages/Doctor/DoctorPage.dart';
+import 'package:autisure/pages/Market/Market.dart';
 import 'package:autisure/pages/OnBoardingHome.dart';
 import 'package:autisure/pages/OnBoardingStart.dart';
 import 'package:autisure/pages/homePage.dart';
@@ -21,7 +21,7 @@ class MainPage extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.system,
         theme: AutiTheme.lightThemeData(context),
-        initialRoute: AutiRoutes.homeRoute,
+        initialRoute: AutiRoutes.marketRoute,
         routes: {
           AutiRoutes.homeRoute: (context) => const HomePage(),
           AutiRoutes.onBoardingHomeRoute: (context) => const OnBoardingHome(),

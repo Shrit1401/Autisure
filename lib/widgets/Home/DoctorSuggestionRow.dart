@@ -7,7 +7,7 @@ import 'package:page_transition/page_transition.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../models/doctors.dart';
-import '../../pages/DoctorDetailPage.dart';
+import '../../pages/Doctor/DoctorDetailPage.dart';
 import 'DoctorSuggestionList.dart';
 
 class DoctorSuggestionRow extends StatelessWidget {

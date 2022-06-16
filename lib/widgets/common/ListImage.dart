@@ -5,9 +5,9 @@ import 'package:velocity_x/velocity_x.dart';
 
 import '../../utilis/themes.dart';
 
-class DoctorListImage extends StatelessWidget {
+class ListImage extends StatelessWidget {
   final String image;
-  const DoctorListImage({Key? key, required this.image}) : super(key: key);
+  const ListImage({Key? key, required this.image}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

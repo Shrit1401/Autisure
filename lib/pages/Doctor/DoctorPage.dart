@@ -8,11 +8,11 @@ import 'package:velocity_x/velocity_x.dart';
 
 import 'package:autisure/models/doctors.dart';
 
-import '../utilis/themes.dart';
-import '../widgets/Doctor/DoctorList.dart';
-import '../widgets/Doctor/DoctorShimmerWidget.dart';
-import '../widgets/common/Drawer/AutiDrawer.dart';
-import '../widgets/common/ExitPopup.dart';
+import '../../utilis/themes.dart';
+import '../../widgets/Doctor/DoctorList.dart';
+import '../../widgets/common/DoctorShimmerWidget.dart';
+import '../../widgets/common/Drawer/AutiDrawer.dart';
+import '../../widgets/common/ExitPopup.dart';
 
 class Doctor extends StatefulWidget {
   const Doctor({Key? key}) : super(key: key);
@@ -80,13 +80,9 @@ class _DoctorState extends State<Doctor> {
                     .bold
                     .color(AutiTheme.primary)
                     .make(),
-
-                
-
                 DoctorModel.doctorInfos.isNotEmpty
                     ? const Expanded(child: DoctorList())
-                    :
-                  ListView.builder(
+                    : ListView.builder(
                         itemCount: 10,
                         itemBuilder: (context, index) {
                           return buildDoctorShimmer();
@@ -100,5 +96,5 @@ class _DoctorState extends State<Doctor> {
 }
 
 Widget buildDoctorShimmer() => const ListTile(
-      title: DoctorShimmerWidget.circular(height: 150, width: 80),
+      title: ShimmerWidget.circular(height: 150, width: 80),
     );

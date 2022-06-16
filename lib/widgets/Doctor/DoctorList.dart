@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
 import '../../models/doctors.dart';
-import '../../pages/DoctorDetailPage.dart';
+import '../../pages/Doctor/DoctorDetailPage.dart';
 import 'DoctorItemWidget.dart';
 
 class DoctorList extends StatelessWidget {
