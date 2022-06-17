@@ -1,6 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
-import 'package:http/http.dart' as http;
 
 
 class DoctorInfo {
@@ -112,17 +111,4 @@ class DoctorInfo {
 
 class DoctorModel {
   static List<DoctorInfo> doctorInfos = [];
-}
-
-void doctorLoadData() async {
-  //local file
-  // var doctorJson = await rootBundle.loadString("assets/Data/Doctors.json");
-  const url = "https://api.npoint.io/6d627dcefa5714264a2a";
-  final response = await http.get(Uri.parse(url));
-  final doctorJson = response.body;
-  var doctorDecodedData = jsonDecode(doctorJson);
-  var doctorInfo = doctorDecodedData["doctors"];
-  DoctorModel.doctorInfos = List.from(doctorInfo)
-      .map<DoctorInfo>((item) => DoctorInfo.fromMap(item))
-      .toList();
 }

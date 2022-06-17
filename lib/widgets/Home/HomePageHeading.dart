@@ -56,3 +56,25 @@ class DoctorSuggestionHead extends StatelessWidget {
     ).px8();
   }
 }
+
+class ToysSuggestionHead extends StatelessWidget {
+  const ToysSuggestionHead({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        "Check Toys".text.xl2.bold.make(),
+        TextButton(
+            onPressed: () {
+              Navigator.restorablePushReplacementNamed(
+                  context, AutiRoutes.marketRoute);
+            },
+            style: TextButton.styleFrom(primary: AutiTheme.primary),
+            child: "See More".text.lg.makeCentered().pOnly(top: 2)),
+      ],
+    ).px8();
+  }
+}

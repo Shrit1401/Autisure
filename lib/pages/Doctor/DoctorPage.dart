@@ -28,7 +28,7 @@ class _DoctorState extends State<Doctor> {
     loadData();
   }
 
-  final url = "https://api.jsonbin.io/b/62a820fc449a1f382107ff5f/4";
+  final url = "https://api.npoint.io/6d627dcefa5714264a2a";
 
   void loadData() async {
     //local file
