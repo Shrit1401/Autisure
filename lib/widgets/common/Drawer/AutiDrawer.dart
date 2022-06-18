@@ -40,18 +40,47 @@ class AutiDrawer extends StatelessWidget {
             Divider(
               color: AutiTheme.white.withAlpha(120),
             ),
-            const AutiDrawerListTile(
+            AutiDrawerListTile(
               title: "Autism Test",
               icon: Iconsax.clipboard_import5,
-              routeName: "",
+              routeName: AutiRoutes.testRoute,
             ),
             Divider(
               color: AutiTheme.white.withAlpha(120),
             ),
-            const AutiDrawerListTile(
-                title: "Games",
-                icon: CupertinoIcons.gamecontroller_alt_fill,
-                routeName: ""),
+            ListTile(
+              title: "Games".text.semiBold.color(AutiTheme.white).make(),
+              leading: Icon(
+                CupertinoIcons.gamecontroller_fill,
+                color: AutiTheme.white,
+              ).pOnly(left: 10),
+              onTap: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    action: SnackBarAction(
+                      label: 'Close',
+                      onPressed: () {
+                        // Code to execute.
+                      },
+                    ),
+                    backgroundColor: AutiTheme.primary,
+                    content: "Games tab Coming Soon"
+                        .text
+                        .center
+                        .color(AutiTheme.white)
+                        .make(),
+                    width: 280.0, // Width of the SnackBar.
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8.0, // Inner padding for SnackBar content.
+                    ),
+                    behavior: SnackBarBehavior.floating,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                  ),
+                );
+              },
+            ),
             Divider(
               color: AutiTheme.white.withAlpha(120),
             ),

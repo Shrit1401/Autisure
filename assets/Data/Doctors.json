@@ -2,63 +2,63 @@
   "doctors": [
     {
       "id": 1,
+      "desc": "Dr. K.B. Hasti is a Neurologist in Civil Lines, Delhi, and has an experience of 40 years in this field. Dr. K.B. Hasti practices at Tirath Ram Shah Hospital in Civil Lines, Delhi, and Max Superspeciality Hospital in Shalimar Bagh, Delhi. He completed MBBS from the University of Delhi in 1969, MD – Medicine from the University of Delhi in 1974, and DM – Neurology from the University of Delhi in 1978.",
       "name": "Kulbhushan Hasti",
-      "specialist": "Nuerology",
+      "imageUrl": "https://i.imgur.com/OfLvYLx.jpg",
+      "location": "Manish Chambers F-6 1st Floor LSC, (West, Block BN, West Shalimar Bagh, Shalimar Bagh, Delhi, 110088",
       "contactNo": "8010992994",
       "isAssured": false,
-      "location": "Manish Chambers F-6 1st Floor LSC, (West, Block BN, West Shalimar Bagh, Shalimar Bagh, Delhi, 110088",
-      "desc": "Dr. K.B. Hasti is a Neurologist in Civil Lines, Delhi, and has an experience of 40 years in this field. Dr. K.B. Hasti practices at Tirath Ram Shah Hospital in Civil Lines, Delhi, and Max Superspeciality Hospital in Shalimar Bagh, Delhi. He completed MBBS from the University of Delhi in 1969, MD – Medicine from the University of Delhi in 1974, and DM – Neurology from the University of Delhi in 1978.",
-      "imageUrl": "https://imagesx.practo.com/providers/dr-k-b-hasti-neurologist-delhi-7f0ed616-157d-411b-a4fe-622cdc57700f.jpg?i_type=t_100x100"
+      "specialist": "Nuerology"
     },
     {
       "id": 2,
+      "desc": "Dr. Anita Sharma Dm in Delhi is one of the most renowned Paediatric Neurologist Doctors in the area. The practitioner holds qualifications in the capacity of MBBS PGIMS, Rohtak 1978, MD (Pediatrics) PGIMS, Rohtak 1981, DM - Child Neurology All India Institute of Medical Sciences, New Delhi 2007, MD - Pediatrics PGIMS, Rohtak 1981. The specialist has in-depth knowledge of related areas of specialization like Neurologist, Pediatric Neurologist, etc.",
       "name": "Anita Sharma",
-      "specialist": "Pediatric Neurology",
-      "isAssured": false,
+      "imageUrl": "https://i.imgur.com/Ypv4wz5.jpeg",
       "location": "1,2, Press Enclave Road, Saket, Delhi, New Delhi, Delhi 110017",
       "contactNo": "07947217765",
-      "desc": "Dr. Anita Sharma Dm in Delhi is one of the most renowned Paediatric Neurologist Doctors in the area. The practitioner holds qualifications in the capacity of MBBS PGIMS, Rohtak 1978, MD (Pediatrics) PGIMS, Rohtak 1981, DM - Child Neurology All India Institute of Medical Sciences, New Delhi 2007, MD - Pediatrics PGIMS, Rohtak 1981. The specialist has in-depth knowledge of related areas of specialization like Neurologist, Pediatric Neurologist, etc.",
-      "imageUrl": "https://imagesx.practo.com/providers/dr-anita-sharma-pediatric-neurologist-delhi-eb4b3d0f-6af1-467e-8904-38c482d06f15.jpg?i_type=t_100x100-4x"
+      "isAssured": false,
+      "specialist": "Pediatric Neurology"
     },
     {
       "id": 3,
+      "desc": "Dr. R N Bhattacharya is a Neurosurgeon in Dhakuria, Kolkata, and has an experience of 41 years in this field. Dr. R N Bhattacharya practices at AMRI Hospitals in Dhakuria, Kolkata. He completed MBBS from Ranchi University in 1973, MS - General Surgery from Banaras Hindu University in 1976, and MCh - Neuro Surgery from Banaras Hindu University in 1981.",
       "name": "R N Bhattacharya",
-      "specialist": "Neurosurgeon",
-      "isAssured": false,
+      "imageUrl": "https://i.imgur.com/5waQmk2.jpg",
       "location": "1,2, Press Enclave Road, Saket, Delhi, New Delhi, Delhi 110017",
       "contactNo": "07947217765",
-      "desc": "Dr. R N Bhattacharya is a Neurosurgeon in Dhakuria, Kolkata and has an experience of 41 years in this field. Dr. R N Bhattacharya practices at AMRI Hospitals in Dhakuria, Kolkata. He completed MBBS from Ranchi University in 1973,MS - General Surgery from Banaras Hindu University in 1976 and MCh - Neuro Surgery from Banaras Hindu University in 1981.",
-      "imageUrl": "https://imagesx.practo.com/providers/dr-r-n-bhattacharya-neurosurgeon-kolkata-855d9114-a914-451c-8178-07f97d04aa10.jpg?i_type=t_100x100"
+      "isAssured": false,
+      "specialist": "Neurosurgeon"
     },
     {
       "id": 4,
+      "desc": "Dr. Deepak Gupta is a General Surgeon and Gastroenterologist in Punjabi Bagh, Delhi, and has an experience of 38 years in these fields. Dr. Deepak Gupta practices at Vrinda Clinic in Punjabi Bagh, Delhi. He completed MBBS from G B Pant Hospital / Moulana Azad Medical College, New Delhi in 1982 and MS - General Surgery from Lady Hardinge Medical College, New Delhi in 1986.",
       "name": "Deepak Gupta",
-      "specialist": "Neurologist",
-      "isAssured": true,
-      "desc": "Dr. Deepak Gupta is a General Surgeon and Gastroenterologist in Punjabi Bagh, Delhi and has an experience of 38 years in these fields. Dr. Deepak Gupta practices at Vrinda Clinic in Punjabi Bagh, Delhi. He completed MBBS from G B Pant Hospital / Moulana Azad Medical College, New Delhi in 1982 and MS - General Surgery from Lady Hardinge Medical College, New Delhi in 1986.",
+      "imageUrl": "https://i.imgur.com/Bu22ka2.jpeg",
+      "location": "Centre for Child \u0026 Adolescent Wellbeing (CCAW), R - 92, Basement, Greater Kailash - I, New Delhi-110048",
       "contactNo": "011 6126 0804",
-      "location": "Centre for Child & Adolescent Wellbeing (CCAW), R - 92, Basement, Greater Kailash - I, New Delhi-110048",
-      "imageUrl": "https://sgrh.com/assets/img/profile/gaa0345.jpg"
+      "isAssured": true,
+      "specialist": "Neurologist"
     },
     {
       "id": 5,
-      "name": "Kamal Aggarwal",
-      "isAssured": true,
       "desc": "Dr. Kamal Agarwal is an Occupational Therapist in Janak Puri, Delhi. Dr. Kamal Agarwal practices at A Beautiful Mind Clinic in Janak Puri, Delhi.",
-      "imageUrl": "https://imagesx.practo.com/providers/dr-kamal-agarwal-occupational-therapist-delhi-f7aed4bf-bc03-4b68-9b66-b89ce1988441.jpg?i_type=t_100x100",
+      "name": "Kamal Aggarwal",
+      "imageUrl": "https://i.imgur.com/0MbB7d3.jpg",
       "location": "#15, Block No: 3, Single Story Ramesh Nagar., Landmark: Opposite To Hum Sabki Rasoi, Delhi",
       "contactNo": "011 4003 6736",
+      "isAssured": true,
       "specialist": "Speech therapist"
     },
     {
       "id": 6,
+      "desc": "Formerly Professor and Head of Pediatrics Department at AIIMS, Delhi. Engaged in the promotion of Child Neurology on national and international levels.",
       "name": "Veena Kalra",
-      "isAssured": true,
-      "specialist": "Pediatrician",
+      "imageUrl": "https://i.imgur.com/oLnbdSg.jpg",
       "location": "Mathura Road, Landmark: Opposite Jasola Metro Station, Delhi",
       "contactNo": "11411 68765",
-      "desc": "Formerly Professor and Head of Pediatrics Department at AIIMS, Delhi. Engaged in the promotion of Child Neurology on national and international levels.",
-      "imageUrl": "https://images1-fabric.practo.com/dr-veena-kalra-1456743873-56d425c14f2c9.jpg"
+      "isAssured": true,
+      "specialist": "Pediatrician"
     }
   ]
 }

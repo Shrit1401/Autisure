@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: file_names
+import 'package:autisure/models/food.dart';
+import 'package:autisure/widgets/Home/FoodSuggestionRow.dart';
 import 'package:autisure/widgets/Home/ToysSuggestionRow.dart';
 import 'package:http/http.dart' as http;
 
@@ -31,6 +33,7 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     toysLoadData();
     loadDoctorData();
+    foodLoadData();
     setState(() {});
   }
 
@@ -55,6 +58,20 @@ class _HomePageState extends State<HomePage> {
     ToysModel.toysInfos = List.from(toysInfo)
         .map<ToysInfo>((item) => ToysInfo.fromMap(item))
         .toList();
+  }
+
+  void foodLoadData() async {
+    //local file
+    // var doctorJson = await rootBundle.loadString("assets/Data/Food.json");
+    const url = "https://api.npoint.io/81353ca19ae94ab5b45e";
+    final response = await http.get(Uri.parse(url));
+    final foodJson = response.body;
+    var foodDecodedData = jsonDecode(foodJson);
+    var doctorInfo = foodDecodedData["Food"];
+    FoodModel.foodInfos = List.from(doctorInfo)
+        .map<FoodInfo>((item) => FoodInfo.fromMap(item))
+        .toList();
+    setState(() {});
   }
 
   @override
@@ -112,6 +129,19 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     child: ToysModel.toysInfos.isNotEmpty
                         ? const ToysSuggestionRow()
+                        : CircularProgressIndicator(color: AutiTheme.primary)
+                            .centered()
+                            .expand(),
+                  )),
+
+              containerChanged,
+              const FoodSuggestionHead(),
+              .20.heightBox,
+              SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Container(
+                    child: FoodModel.foodInfos.isNotEmpty
+                        ? const FoodSuggestionRow()
                         : CircularProgressIndicator(color: AutiTheme.primary)
                             .centered()
                             .expand(),

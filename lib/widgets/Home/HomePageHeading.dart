@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:autisure/pages/Market/Market.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -71,6 +72,28 @@ class ToysSuggestionHead extends StatelessWidget {
             onPressed: () {
               Navigator.restorablePushReplacementNamed(
                   context, AutiRoutes.marketRoute);
+            },
+            style: TextButton.styleFrom(primary: AutiTheme.primary),
+            child: "See More".text.lg.makeCentered().pOnly(top: 2)),
+      ],
+    ).px8();
+  }
+}
+
+class FoodSuggestionHead extends StatelessWidget {
+  const FoodSuggestionHead({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        "Check Food Items".text.xl2.bold.make(),
+        TextButton(
+            onPressed: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => const Market()));
             },
             style: TextButton.styleFrom(primary: AutiTheme.primary),
             child: "See More".text.lg.makeCentered().pOnly(top: 2)),

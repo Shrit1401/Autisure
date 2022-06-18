@@ -13,4 +13,5 @@ class AutiTheme {
   static Color primary = const Color.fromARGB(255, 214, 28, 78);
   static Color white = Vx.white;
   static Color creamColor = const Color.fromARGB(255, 239, 239, 239);
+  static Color grey = Vx.hexToColor("ECECECECEC");
 }

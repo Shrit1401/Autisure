@@ -1,8 +1,8 @@
 // ignore_for_file: file_names
 
 class OnBoardingScreenStartContent {
-  late String image;
-  late String title;
+  String image;
+  String title;
 
   OnBoardingScreenStartContent({
     required this.image,
