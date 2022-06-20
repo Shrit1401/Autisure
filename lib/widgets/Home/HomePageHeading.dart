@@ -30,7 +30,6 @@ class HomePageHeading extends StatelessWidget {
             .align(TextAlign.left)
             .make()
             .p0(),
-        10.heightBox,
       ],
     );
   }

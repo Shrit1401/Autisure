@@ -1,14 +1,12 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
 // ignore_for_file: file_names
-
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'package:autisure/utilis/routes.dart';
 
 import '../../utilis/themes.dart';
+import '../../widgets/Test/Result.dart';
 import '../../widgets/common/Drawer/AutiDrawer.dart';
 import '../../widgets/common/ExitPopup.dart';
 
@@ -75,46 +73,6 @@ class TestResult extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class Result extends StatelessWidget {
-  int score;
-  Result({
-    Key? key,
-    required this.score,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      // mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        "The Test Results are:"
-            .text
-            .xl5
-            .center
-            .color(AutiTheme.primary)
-            .bold
-            .makeCentered(),
-        20.heightBox,
-        "May be Your kid is autistic".text.xl3.underline.make(),
-        40.heightBox,
-        "Within are test we found that your kid is autistic to contact with a doctor before asumming anything"
-            .text
-            .center
-            .lg
-            .make()
-            .px12(),
-        10.heightBox,
-        "Note: the Test result aren’t the final consult a doctor they may help"
-            .text
-            .lg
-            .center
-            .make()
-            .px12()
-      ],
     );
   }
 }

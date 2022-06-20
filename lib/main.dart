@@ -2,6 +2,8 @@ import 'package:autisure/pages/Doctor/DoctorPage.dart';
 import 'package:autisure/pages/Market/Market.dart';
 import 'package:autisure/pages/OnBoardingHome.dart';
 import 'package:autisure/pages/OnBoardingStart.dart';
+import 'package:autisure/pages/Settings/Settings.dart';
+import 'package:autisure/pages/Symptoms/Symptoms.dart';
 import 'package:autisure/pages/Test/Test.dart';
 import 'package:autisure/pages/Test/TestPage.dart';
 import 'package:autisure/pages/homePage.dart';
@@ -9,8 +11,15 @@ import 'package:autisure/utilis/routes.dart';
 import 'package:autisure/utilis/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+int? initScreen = 0;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences preferences = await SharedPreferences.getInstance();
+  initScreen = preferences.getInt('initScreen');
+  await preferences.setInt('initScreen', 1);
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: AutiTheme.primary,
       systemNavigationBarColor: AutiTheme.primary));
@@ -27,7 +36,9 @@ class MainPage extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.system,
         theme: AutiTheme.lightThemeData(context),
-        initialRoute: AutiRoutes.testPageRoute,
+        initialRoute: initScreen == 0 || initScreen == null
+            ? AutiRoutes.onBoardingStartRoute
+            : AutiRoutes.homeRoute, 
         routes: {
           AutiRoutes.homeRoute: (context) => const HomePage(),
           AutiRoutes.onBoardingHomeRoute: (context) => const OnBoardingHome(),
@@ -36,6 +47,8 @@ class MainPage extends StatelessWidget {
           AutiRoutes.marketRoute: (context) => const Market(),
           AutiRoutes.testRoute: (context) => const AutismTest(),
           AutiRoutes.testPageRoute: (context) => const TestPage(),
+          AutiRoutes.symptomsRoutes: (context) => const Symptoms(),
+          AutiRoutes.settingsRoute: (context) => const Settings(),
         });
   }
 }

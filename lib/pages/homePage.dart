@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, deprecated_member_use, curly_braces_in_flow_control_structures
 // ignore_for_file: file_names
 import 'package:autisure/models/food.dart';
 import 'package:autisure/widgets/Home/FoodSuggestionRow.dart';
@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'package:autisure/models/doctors.dart';
@@ -104,13 +105,11 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               const HomePageHeading(),
-              .20.heightBox,
-              const FunFactBtn(),
-              containerChanged,
+              10.heightBox,
               const AutismTestButton(),
               containerChanged,
               const DoctorSuggestionHead(),
-              .20.heightBox,
+              20.heightBox,
               SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Container(
@@ -123,7 +122,7 @@ class _HomePageState extends State<HomePage> {
 
               containerChanged,
               const ToysSuggestionHead(),
-              .20.heightBox,
+              20.heightBox,
               SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Container(
@@ -136,7 +135,7 @@ class _HomePageState extends State<HomePage> {
 
               containerChanged,
               const FoodSuggestionHead(),
-              .20.heightBox,
+              20.heightBox,
               SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Container(
@@ -146,6 +145,41 @@ class _HomePageState extends State<HomePage> {
                             .centered()
                             .expand(),
                   )),
+
+              const SizedBox(
+                height: 30,
+                child: Divider(thickness: 2),
+              ),
+              InkWell(
+                onTap: () async {
+                  const url =
+                      "https://play.google.com/store/apps/dev?id=7680978888333046706";
+                  if (await canLaunch(url))
+                    await launch(url);
+                  else
+                    // can't launch url, there is some error
+                    throw "Could not launch $url";
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    "An Innitaivte taken by Shrit Shritvastava"
+                        .text
+                        .xl2
+                        .bold
+                        .center
+                        .color(AutiTheme.logoBlack)
+                        .make(),
+                    5.heightBox,
+                    "aka Shrit1401".text.color(AutiTheme.logoBlack).make(),
+                  ],
+                )
+                    .wFull(context)
+                    .h20(context)
+                    .backgroundColor(AutiTheme.logoGreen)
+                    .cornerRadius(10),
+              )
             ],
           ).p16(),
         ),

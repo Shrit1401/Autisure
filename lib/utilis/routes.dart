@@ -8,4 +8,6 @@ class AutiRoutes {
   static String testRoute = "/test";
   static String testPageRoute = "/testpage";
   static String testResultRoute = "/testresult";
+  static String symptomsRoutes = "/symptoms";
+  static String settingsRoute = "/settings";
 }

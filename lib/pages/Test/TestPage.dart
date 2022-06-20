@@ -68,7 +68,9 @@ class _TestPageState extends State<TestPage> {
                   30.heightBox,
                   ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            primary: isNo ? Colors.grey : AutiTheme.grey,
+                            primary: isNo
+                                ? const Color.fromARGB(255, 188, 188, 188)
+                                : AutiTheme.grey,
                           ),
                           onPressed: () {
                             isVisible = true;

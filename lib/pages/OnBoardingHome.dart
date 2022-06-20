@@ -39,7 +39,10 @@ class OnBoardingHome extends StatelessWidget {
             SizedBox(
               height: 50,
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(
+                        context, AutiRoutes.testRoute);
+                  },
                   style: ElevatedButton.styleFrom(
                       elevation: 0,
                       primary: AutiTheme.white,
