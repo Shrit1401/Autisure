@@ -3,12 +3,12 @@
 import 'package:autisure/models/food.dart';
 import 'package:autisure/widgets/Home/FoodSuggestionRow.dart';
 import 'package:autisure/widgets/Home/ToysSuggestionRow.dart';
+import 'package:autisure/widgets/common/BottomBar/AutiBottomBar.dart';
 import 'package:http/http.dart' as http;
 
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'package:autisure/models/doctors.dart';
@@ -81,9 +81,10 @@ class _HomePageState extends State<HomePage> {
     return WillPopScope(
       onWillPop: () => showExitPopup(context),
       child: Scaffold(
+        backgroundColor: context.backgroundColor,
         appBar: AppBar(
             centerTitle: true,
-            backgroundColor: AutiTheme.primary,
+            backgroundColor: context.primaryColor,
             elevation: 0,
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(
@@ -115,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     child: DoctorModel.doctorInfos.isNotEmpty
                         ? const DoctorSuggestionRow()
-                        : CircularProgressIndicator(color: AutiTheme.primary)
+                        : CircularProgressIndicator(color: context.primaryColor)
                             .centered()
                             .expand(),
                   )),
@@ -128,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     child: ToysModel.toysInfos.isNotEmpty
                         ? const ToysSuggestionRow()
-                        : CircularProgressIndicator(color: AutiTheme.primary)
+                        : CircularProgressIndicator(color: context.primaryColor)
                             .centered()
                             .expand(),
                   )),
@@ -141,45 +142,12 @@ class _HomePageState extends State<HomePage> {
                   child: Container(
                     child: FoodModel.foodInfos.isNotEmpty
                         ? const FoodSuggestionRow()
-                        : CircularProgressIndicator(color: AutiTheme.primary)
+                        : CircularProgressIndicator(color: context.primaryColor)
                             .centered()
                             .expand(),
                   )),
 
-              const SizedBox(
-                height: 30,
-                child: Divider(thickness: 2),
-              ),
-              InkWell(
-                onTap: () async {
-                  const url =
-                      "https://play.google.com/store/apps/dev?id=7680978888333046706";
-                  if (await canLaunch(url))
-                    await launch(url);
-                  else
-                    // can't launch url, there is some error
-                    throw "Could not launch $url";
-                },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    "An Innitaivte taken by Shrit Shritvastava"
-                        .text
-                        .xl2
-                        .bold
-                        .center
-                        .color(AutiTheme.logoBlack)
-                        .make(),
-                    5.heightBox,
-                    "aka Shrit1401".text.color(AutiTheme.logoBlack).make(),
-                  ],
-                )
-                    .wFull(context)
-                    .h20(context)
-                    .backgroundColor(AutiTheme.logoGreen)
-                    .cornerRadius(10),
-              )
+              const AutiBottomBar()
             ],
           ).p16(),
         ),

@@ -26,24 +26,30 @@ class _TestPageState extends State<TestPage> {
         onWillPop: () => showExitPopup(context),
         child: SafeArea(
           child: Scaffold(
+              backgroundColor: context.backgroundColor,
               body: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               "Autisure Test: ${testContent[currentIndex].id}/${testContent.length}"
                   .text
                   .headline4(context)
-                  .color(AutiTheme.primary)
+                      .color(context.primaryColor)
                   .makeCentered(),
               Column(
                 children: [
                   "Q${testContent[currentIndex].id}. ${testContent[currentIndex].question}"
                       .text
                       .center
-                      .color(AutiTheme.primary)
+                          .color(context.primaryColor)
                       .headline4(context)
                       .make(),
                   10.heightBox,
-                  testContent[currentIndex].info.text.center.make()
+                      testContent[currentIndex]
+                          .info
+                          .text
+                          .color(context.primaryColor)
+                          .center
+                          .make()
                 ],
               ).px(2),
               Column(

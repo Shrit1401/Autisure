@@ -1,11 +1,11 @@
 // ignore_for_file: file_names, deprecated_member_use
 
-import 'package:autisure/utilis/themes.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../models/doctors.dart';
+import '../../utilis/themes.dart';
 
 class DoctorDetailPage extends StatelessWidget {
   final DoctorInfo item;
@@ -22,11 +22,11 @@ class DoctorDetailPage extends StatelessWidget {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-            backgroundColor: AutiTheme.white,
+            backgroundColor: context.primaryColor,
             content:
                 "There's seems some issue with your mobile try restarting it"
                     .text
-                    .color(AutiTheme.primary)
+                    .color(context.primaryColor)
                     .center
                     .make()),
       );
@@ -38,10 +38,10 @@ class DoctorDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AutiTheme.primary,
+      backgroundColor: context.primaryColor,
       appBar: AppBar(
         title: "Dr. ${item.name}".text.make(),
-        backgroundColor: AutiTheme.primary,
+        backgroundColor: context.primaryColor,
         elevation: 0,
       ),
       bottomNavigationBar: ElevatedButton(
@@ -57,9 +57,9 @@ class DoctorDetailPage extends StatelessWidget {
             .text
             .xl
             .bold
-            .color(AutiTheme.primary)
+            .color(context.primaryColor)
             .make(),
-        // color: AutiTheme.primary,
+        // color: context.primaryColor,
       ).pLTRB(15, 5, 15, 5),
       body: SingleChildScrollView(
         child: Column(

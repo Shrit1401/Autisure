@@ -2,6 +2,7 @@
 // ignore_for_file: file_names
 import 'dart:convert';
 
+import 'package:autisure/widgets/common/ContactDeveloper.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:velocity_x/velocity_x.dart';
@@ -54,7 +55,7 @@ class _DoctorState extends State<Doctor> {
                 bottom: Radius.circular(20),
               )),
               centerTitle: true,
-              backgroundColor: AutiTheme.primary,
+              backgroundColor: context.primaryColor,
               elevation: 0,
               leading: Builder(
                 builder: (context) => IconButton(
@@ -78,7 +79,7 @@ class _DoctorState extends State<Doctor> {
                     .text
                     .xl4
                     .bold
-                    .color(AutiTheme.primary)
+                    .color(context.primaryColor)
                     .make(),
                 DoctorModel.doctorInfos.isNotEmpty
                     ? const Expanded(child: DoctorList())
@@ -87,7 +88,8 @@ class _DoctorState extends State<Doctor> {
                         itemBuilder: (context, index) {
                           return buildDoctorShimmer();
                         },
-                      ).expand()
+                      ).expand(),
+                const ContactDev()
               ],
             ),
           )),

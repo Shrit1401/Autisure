@@ -25,6 +25,7 @@ class DoctorList extends StatelessWidget {
                     duration: const Duration(milliseconds: 300),
                     child: DoctorDetailPage(item: doctorInfo))),
             child: DoctorItemWidget(item: doctorInfo));
+            
       },
     );
   }

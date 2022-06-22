@@ -17,13 +17,14 @@ class AutismTest extends StatelessWidget {
     return WillPopScope(
       onWillPop: () => showExitPopup(context),
       child: Scaffold(
+          backgroundColor: context.backgroundColor,
           appBar: AppBar(
               shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(
                 bottom: Radius.circular(20),
               )),
               centerTitle: true,
-              backgroundColor: AutiTheme.primary,
+              backgroundColor: context.primaryColor,
               elevation: 0,
               leading: Builder(
                 builder: (context) => IconButton(
@@ -47,7 +48,7 @@ class AutismTest extends StatelessWidget {
                       context, AutiRoutes.testPageRoute);
                 },
                 style: ElevatedButton.styleFrom(
-                    primary: AutiTheme.primary,
+                    primary: context.primaryColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12))),
                 child: "Start Test".text.make(),

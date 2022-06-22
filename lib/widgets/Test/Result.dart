@@ -4,7 +4,6 @@ import 'package:autisure/widgets/Test/TestResultText.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../../utilis/themes.dart';
 
 class Result extends StatefulWidget {
   int score;
@@ -27,11 +26,11 @@ class _ResultState extends State<Result> {
   }
 
   void testResult() {
-    if (widget.score > 0 && widget.score <= 1) {
+    if (widget.score > 5 && widget.score <= 12) {
       isMild = true;
-    } else if (widget.score < 0) {
+    } else if (widget.score < 5) {
       isSevere = true;
-    } else if (widget.score > 1) {
+    } else if (widget.score > 12) {
       isNormal = true;
     }
     setState(() {});
@@ -45,7 +44,7 @@ class _ResultState extends State<Result> {
             .text
             .xl5
             .center
-            .color(AutiTheme.primary)
+            .color(context.primaryColor)
             .bold
             .makeCentered(),
         20.heightBox,

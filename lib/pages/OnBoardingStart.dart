@@ -36,7 +36,7 @@ class _OnBoardingStartState extends State<OnBoardingStart> {
     return WillPopScope(
       onWillPop: () => showExitPopup(context),
       child: Scaffold(
-        backgroundColor: AutiTheme.primary,
+        backgroundColor: context.primaryColor,
         body: Column(
           children: [
             Expanded(
@@ -56,10 +56,19 @@ class _OnBoardingStartState extends State<OnBoardingStart> {
                         .title
                         .text
                         .textStyle(const TextStyle(fontWeight: FontWeight.bold))
-                        .xl4
+                        .xl2
                         .center
                         .color(AutiTheme.white)
                         .make(),
+                    10.heightBox,
+                    onboardingContent[index]
+                        .desc
+                        .text
+                        .lg
+                        .color(AutiTheme.white)
+                        .center
+                        .textStyle(context.captionStyle)
+                        .make()
                   ]).p32();
                 },
               ),
@@ -94,7 +103,7 @@ class _OnBoardingStartState extends State<OnBoardingStart> {
                         ? 'Continue'
                         : 'Get Started')
                     .text
-                    .color(AutiTheme.primary)
+                    .color(context.primaryColor)
                     .lg
                     .bold
                     .make(),

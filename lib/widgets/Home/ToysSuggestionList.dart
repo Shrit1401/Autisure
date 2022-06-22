@@ -26,7 +26,7 @@ class ToysSuggestionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AutiTheme.primary,
+      color: context.primaryColor,
       height: 250,
       width: 250,
       child: Column(
@@ -36,14 +36,14 @@ class ToysSuggestionList extends StatelessWidget {
             tag: Key(item.name),
             child: Image.network(
               item.imageUrl,
-              width: 100,
-              height: 100,
+              width: 80,
+              height: 80,
             ).cornerRadius(12),
           ),
           10.heightBox,
           Column(
             children: [
-              item.name.text.xl2.color(AutiTheme.white).bold.make(),
+              item.name.text.xl.color(AutiTheme.white).bold.make(),
               5.heightBox,
               "\$${item.price}".text.medium.color(AutiTheme.white).bold.make(),
               OutlinedButton(

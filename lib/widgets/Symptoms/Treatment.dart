@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
-import '../../utilis/themes.dart';
 
 class Treatment extends StatelessWidget {
   const Treatment({Key? key}) : super(key: key);
@@ -17,7 +16,7 @@ class Treatment extends StatelessWidget {
             .start
             .bold
             .headline4(context)
-            .color(AutiTheme.primary)
+            .color(context.primaryColor)
             .make(),
         10.heightBox,
         "Early detection, as well as behavioral, educational, and family therapy, may help to alleviate symptoms and promote growth and learning."

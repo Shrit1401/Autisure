@@ -58,7 +58,7 @@ class ToysItemWidget extends StatelessWidget {
                             content: Text(
                               'Prices may vary, visit the actual site for more info.',
                               textAlign: TextAlign.center,
-                              style: TextStyle(color: AutiTheme.primary),
+                              style: TextStyle(color: context.primaryColor),
                             ),
                           ),
                         );
@@ -85,6 +85,6 @@ class ToysItemWidget extends StatelessWidget {
           ],
         ))
       ],
-    )).color(AutiTheme.primary).shadowSm.rounded.square(200).make().py16();
+    )).color(context.primaryColor).shadowSm.rounded.square(200).make().py16();
   }
 }

@@ -24,7 +24,7 @@ class TestResult extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
             centerTitle: true,
-            backgroundColor: AutiTheme.primary,
+            backgroundColor: context.primaryColor,
             elevation: 0,
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(
@@ -51,7 +51,7 @@ class TestResult extends StatelessWidget {
             .20.heightBox,
             ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        primary: AutiTheme.primary,
+                        primary: context.primaryColor,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12))),
                     onPressed: () {
@@ -67,7 +67,7 @@ class TestResult extends StatelessWidget {
                       Navigator.pushReplacementNamed(
                           context, AutiRoutes.doctorRoute);
                     },
-                    style: TextButton.styleFrom(primary: AutiTheme.primary),
+                    style: TextButton.styleFrom(primary: context.primaryColor),
                     child: "Doctor Page".text.xl3.underline.make())
                 .pOnly(bottom: 20)
           ],

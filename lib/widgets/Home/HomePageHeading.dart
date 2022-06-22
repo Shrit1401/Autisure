@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../utilis/routes.dart';
-import '../../utilis/themes.dart';
 
 class HomePageHeading extends StatelessWidget {
   const HomePageHeading({Key? key}) : super(key: key);
@@ -19,13 +18,13 @@ class HomePageHeading extends StatelessWidget {
         "Abilty In Disablity"
             .text
             .medium
-            .color(AutiTheme.primary)
+            .color(context.primaryColor)
             .xl5
             .make()
             .p0(),
         "Autisure help in every way"
             .text
-            .color(AutiTheme.primary)
+            .color(context.primaryColor)
             .lg
             .align(TextAlign.left)
             .make()
@@ -44,13 +43,18 @@ class DoctorSuggestionHead extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        "Check Out Some Doctors".text.xl2.bold.make(),
+        "Check Out Some Doctors"
+            .text
+            .xl2
+            .color(context.primaryColor)
+            .bold
+            .make(),
         TextButton(
             onPressed: () {
               Navigator.restorablePushReplacementNamed(
                   context, AutiRoutes.doctorRoute);
             },
-            style: TextButton.styleFrom(primary: AutiTheme.primary),
+            style: TextButton.styleFrom(primary: context.primaryColor),
             child: "See More".text.lg.makeCentered().pOnly(top: 2)),
       ],
     ).px8();
@@ -66,13 +70,13 @@ class ToysSuggestionHead extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        "Check Toys".text.xl2.bold.make(),
+        "Check Toys".text.xl2.color(context.primaryColor).bold.make(),
         TextButton(
             onPressed: () {
               Navigator.restorablePushReplacementNamed(
                   context, AutiRoutes.marketRoute);
             },
-            style: TextButton.styleFrom(primary: AutiTheme.primary),
+            style: TextButton.styleFrom(primary: context.primaryColor),
             child: "See More".text.lg.makeCentered().pOnly(top: 2)),
       ],
     ).px8();
@@ -88,13 +92,13 @@ class FoodSuggestionHead extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        "Check Food Items".text.xl2.bold.make(),
+        "Check Food Items".text.xl2.bold.color(context.primaryColor).make(),
         TextButton(
             onPressed: () {
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => const Market()));
             },
-            style: TextButton.styleFrom(primary: AutiTheme.primary),
+            style: TextButton.styleFrom(primary: context.primaryColor),
             child: "See More".text.lg.makeCentered().pOnly(top: 2)),
       ],
     ).px8();

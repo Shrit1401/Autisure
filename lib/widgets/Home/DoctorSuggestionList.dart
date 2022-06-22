@@ -18,7 +18,7 @@ class DoctorSuggestionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AutiTheme.primary,
+      color: context.primaryColor,
       height: 250,
       width: 250,
       child: Column(
@@ -28,14 +28,19 @@ class DoctorSuggestionList extends StatelessWidget {
             tag: Key(item.name),
             child: Image.network(
               item.imageUrl,
-              width: 100,
-              height: 100,
-            ).cornerRadius(12),
+              width: 80,
+              height: 80,
+            ).cornerRadius(12).p0(),
           ),
-          10.heightBox,
           Column(
             children: [
-              "Dr. ${item.name}".text.xl2.color(AutiTheme.white).bold.make(),
+              "Dr. ${item.name}"
+                  .text
+                  .xl
+                  .center
+                  .color(AutiTheme.white)
+                  .bold
+                  .make(),
               5.heightBox,
               item.specialist.text.medium.color(AutiTheme.white).bold.make(),
               IconButton(

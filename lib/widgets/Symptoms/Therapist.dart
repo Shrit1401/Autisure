@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../utilis/routes.dart';
-import '../../utilis/themes.dart';
 
 class Therapist extends StatelessWidget {
   const Therapist({Key? key}) : super(key: key);
@@ -18,7 +17,7 @@ class Therapist extends StatelessWidget {
             .start
             .bold
             .headline4(context)
-            .color(AutiTheme.primary)
+            .color(context.primaryColor)
             .make(),
         10.heightBox,
         const Text(
@@ -35,7 +34,7 @@ class Therapist extends StatelessWidget {
             onPressed: () {
               Navigator.pushReplacementNamed(context, AutiRoutes.doctorRoute);
             },
-            style: TextButton.styleFrom(primary: AutiTheme.primary),
+            style: TextButton.styleFrom(primary: context.primaryColor),
             child: "Check Some Doctors".text.make())
       ],
     );

@@ -1,5 +1,6 @@
 // ignore_for_file: file_names
 
+import 'package:autisure/utilis/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -11,9 +12,11 @@ class AutismTestButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, AutiRoutes.testRoute);
+            },
             style: ElevatedButton.styleFrom(
-                primary: AutiTheme.primary,
+                primary: context.primaryColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18),
                 )),

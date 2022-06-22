@@ -47,7 +47,7 @@ class AssuredBadgeDoctor extends StatelessWidget {
             context: context,
             builder: (context) {
               return Dialog(
-                  backgroundColor: AutiTheme.primary,
+                  backgroundColor: context.primaryColor,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12)),
                   elevation: 20,
@@ -82,7 +82,10 @@ class AssuredBadgeDoctor extends StatelessWidget {
                                   Navigator.pop(context);
                                 },
                                 child:
-                                    "OK".text.color(AutiTheme.primary).make())
+                                    "OK"
+                                    .text
+                                    .color(context.primaryColor)
+                                    .make())
                           ])).p16());
             });
       },

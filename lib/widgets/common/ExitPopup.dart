@@ -9,7 +9,7 @@ Future<bool> showExitPopup(context) async {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: AutiTheme.primary,
+          backgroundColor: Colors.black87,
           content: SizedBox(
             height: 100,
             child: Column(
@@ -32,7 +32,7 @@ Future<bool> showExitPopup(context) async {
                             elevation: 0,
                             side:
                                 BorderSide(width: 2.0, color: AutiTheme.white),
-                            primary: AutiTheme.primary
+                            primary: Colors.black12
                         ),
                         child: Text(
                           "Yes",

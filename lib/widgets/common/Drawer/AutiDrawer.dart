@@ -1,12 +1,13 @@
 // ignore_for_file: file_names
 
 import 'package:autisure/utilis/routes.dart';
-import 'package:autisure/utilis/themes.dart';
 import 'package:autisure/widgets/common/Drawer/ListTileDrawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:velocity_x/velocity_x.dart';
+
+import '../../../utilis/themes.dart';
 
 class AutiDrawer extends StatelessWidget {
   const AutiDrawer({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class AutiDrawer extends StatelessWidget {
         borderRadius: const BorderRadius.only(
             topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
         child: Drawer(
-          backgroundColor: AutiTheme.primary,
+          backgroundColor: context.primaryColor,
           child: ListView(
             children: [
               DrawerHeader(
@@ -29,7 +30,7 @@ class AutiDrawer extends StatelessWidget {
                             BorderSide(color: AutiTheme.white.withAlpha(80)))),
                 child: UserAccountsDrawerHeader(
                   accountName: "Autisure".text.semiBold.xl5.make(),
-                  decoration: BoxDecoration(color: AutiTheme.primary),
+                  decoration: BoxDecoration(color: context.primaryColor),
                   accountEmail: "Abilty in Disablity".text.medium.lg.make(),
                 ),
               ),
@@ -57,7 +58,7 @@ class AutiDrawer extends StatelessWidget {
                 color: AutiTheme.white.withAlpha(120),
               ),
               AutiDrawerListTile(
-                  title: "Autism Market",
+                  title: "Toys & Food",
                   icon: CupertinoIcons.bag_fill,
                   routeName: AutiRoutes.marketRoute),
               Divider(
@@ -70,12 +71,14 @@ class AutiDrawer extends StatelessWidget {
               Divider(
                 color: AutiTheme.white.withAlpha(120),
               ),
-              AutiDrawerListTile(
-                  title: "Settings",
-                  icon: Icons.settings,
-                  routeName: AutiRoutes.settingsRoute),
-              Divider(
-                color: AutiTheme.white.withAlpha(120),
+              100.heightBox,
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: "Autisure: Beta 0.1"
+                    .text
+                    .textStyle(context.captionStyle)
+                    .color(AutiTheme.grey)
+                    .make(),
               ),
             ],
           ),

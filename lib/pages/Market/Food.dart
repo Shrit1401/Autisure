@@ -3,13 +3,13 @@
 
 import 'dart:convert';
 
+import 'package:autisure/widgets/common/ContactDeveloper.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:velocity_x/velocity_x.dart';
 
 import 'package:autisure/models/food.dart';
 
-import '../../utilis/themes.dart';
 import '../../widgets/Market/FoodList.dart';
 import '../../widgets/common/DoctorShimmerWidget.dart';
 import '../../widgets/common/ExitPopup.dart';
@@ -52,7 +52,7 @@ class _FoodState extends State<Food> {
           padding: Vx.m16,
           child: Column(
             children: [
-              "Food".text.xl4.bold.color(AutiTheme.primary).makeCentered(),
+              "Food".text.xl4.bold.color(context.primaryColor).makeCentered(),
               FoodModel.foodInfos.isNotEmpty
                   ? const FoodList()
                   : ListView.builder(
@@ -60,7 +60,8 @@ class _FoodState extends State<Food> {
                       itemBuilder: (context, index) {
                         return buildDoctorShimmer();
                       },
-                    ).expand()
+                    ).expand(),
+              const ContactDev()
             ],
           ),
         )));

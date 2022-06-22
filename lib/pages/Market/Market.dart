@@ -38,7 +38,7 @@ class _MarketState extends State<Market> with SingleTickerProviderStateMixin {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          backgroundColor: AutiTheme.primary,
+          backgroundColor: context.primaryColor,
           elevation: 0,
           leading: Builder(
             builder: (context) => IconButton(

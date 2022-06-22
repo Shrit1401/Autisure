@@ -35,7 +35,7 @@ class DoctorItemWidget extends StatelessWidget {
         )
       ],
     ))
-        .color(AutiTheme.primary)
+        .color(context.primaryColor)
         .shadowSm
         .rounded
         .square(150)

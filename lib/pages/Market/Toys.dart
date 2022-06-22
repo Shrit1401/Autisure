@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:velocity_x/velocity_x.dart';
 
-import '../../utilis/themes.dart';
 import '../../widgets/Market/ToysList.dart';
+import '../../widgets/common/ContactDeveloper.dart';
 import '../../widgets/common/DoctorShimmerWidget.dart';
 import '../../widgets/common/ExitPopup.dart';
 
@@ -48,7 +48,7 @@ class _ToysState extends State<Toys> {
           padding: Vx.m16,
           child: Column(
             children: [
-              "Toys".text.xl4.bold.color(AutiTheme.primary).makeCentered(),
+              "Toys".text.xl4.bold.color(context.primaryColor).makeCentered(),
               ToysModel.toysInfos.isNotEmpty
                   ? const ToysList()
                   : ListView.builder(
@@ -56,7 +56,9 @@ class _ToysState extends State<Toys> {
                       itemBuilder: (context, index) {
                         return buildDoctorShimmer();
                       },
-                    ).expand()
+                    ).expand(),
+              const ContactDev()
+
             ],
           ),
         ),

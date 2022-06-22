@@ -16,9 +16,9 @@ class OnBoardingHome extends StatelessWidget {
             title: "Autisure".text.color(AutiTheme.white).make(),
             centerTitle: true,
             elevation: 0,
-            backgroundColor: AutiTheme.primary,
+            backgroundColor: context.primaryColor,
             leading: const BackButton()),
-        backgroundColor: AutiTheme.primary,
+        backgroundColor: context.primaryColor,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -51,7 +51,7 @@ class OnBoardingHome extends StatelessWidget {
                   child: "Go Check if my kid is autistic"
                       .text
                       .bold
-                      .color(AutiTheme.primary)
+                      .color(context.primaryColor)
                       .xl2
                       .make()),
             ),

@@ -43,7 +43,6 @@ dependencies:
   shimmer: ^2.0.0
   flutter_native_splash: ^2.2.3+1
   shared_preferences: ^2.0.15
-  flutter_settings_screens: ^0.3.3-null-safety+1
 
 dev_dependencies:
   flutter_test:

@@ -26,7 +26,7 @@ class Symptoms extends StatelessWidget {
               bottom: Radius.circular(20),
             )),
             centerTitle: true,
-            backgroundColor: AutiTheme.primary,
+            backgroundColor: context.primaryColor,
             elevation: 0,
             leading: Builder(
               builder: (context) => IconButton(
@@ -48,7 +48,7 @@ class Symptoms extends StatelessWidget {
                   .text
                   .xl4
                   .center
-                  .color(AutiTheme.primary)
+                  .color(context.primaryColor)
                   .make(),
               30.heightBox,
               const SymIntro(),
