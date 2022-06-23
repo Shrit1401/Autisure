@@ -31,10 +31,9 @@ class MainPage extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.system,
         theme: AutiTheme.lightThemeData(context),
-        // initialRoute: initScreen == 0 || initScreen == null
-        //     ? AutiRoutes.onBoardingStartRoute
-        //     : AutiRoutes.homeRoute,
-        initialRoute: AutiRoutes.marketRoute,
+        initialRoute: initScreen == 0 || initScreen == null
+            ? AutiRoutes.onBoardingStartRoute
+            : AutiRoutes.homeRoute,
         routes: {
           AutiRoutes.homeRoute: (context) => const HomePage(),
           AutiRoutes.onBoardingHomeRoute: (context) => const OnBoardingHome(),

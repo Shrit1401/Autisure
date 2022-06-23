@@ -45,3 +45,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+
+#not to be shown publicly
+key.properties
+app/upload-keystore.jsk
