@@ -17,7 +17,7 @@ class OnBoardingHome extends StatelessWidget {
             centerTitle: true,
             elevation: 0,
             backgroundColor: context.primaryColor,
-            leading: const BackButton()),
+            leading: const BackButton().px(10)),
         backgroundColor: context.primaryColor,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,

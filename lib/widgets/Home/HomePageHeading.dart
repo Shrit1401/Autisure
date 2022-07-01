@@ -11,26 +11,48 @@ class HomePageHeading extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        "Abilty In Disablity"
-            .text
-            .medium
-            .color(context.primaryColor)
-            .xl5
-            .make()
-            .p0(),
-        "Autisure help in every way"
-            .text
-            .color(context.primaryColor)
-            .lg
-            .align(TextAlign.left)
-            .make()
-            .p0(),
-      ],
-    );
+    return Vx.isWeb
+        ? Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              "Abilty In Disability"
+                  .text
+                  .medium
+                  .color(context.primaryColor)
+                  .size(80)
+                  .make()
+                  .py0(),
+              "Assured In Every Way"
+                  .text
+                  .color(context.primaryColor)
+                  .xl3
+                  .align(TextAlign.center)
+                  .make()
+                  .p0(),
+            ],
+          ).p0()
+        : Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              "Abilty In Disability"
+                  .text
+                  .medium
+                  .color(context.primaryColor)
+                  .xl4
+                  .bold
+                  .make()
+                  .py0(),
+              "Assured In Every Way"
+                  .text
+                  .color(context.primaryColor)
+                  .lg
+                  .align(TextAlign.center)
+                  .make()
+                  .p0(),
+            ],
+          ).p0();
   }
 }
 
@@ -39,25 +61,45 @@ class DoctorSuggestionHead extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        "Check Out Some Doctors"
-            .text
-            .xl2
-            .color(context.primaryColor)
-            .bold
-            .make(),
-        TextButton(
-            onPressed: () {
-              Navigator.restorablePushReplacementNamed(
-                  context, AutiRoutes.doctorRoute);
-            },
-            style: TextButton.styleFrom(primary: context.primaryColor),
-            child: "See More".text.lg.makeCentered().pOnly(top: 2)),
-      ],
-    ).px8();
+    return Vx.isWeb
+        ? Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              "Check Out Some Doctors"
+                  .text
+                  .xl4
+                  .color(context.primaryColor)
+                  .bold
+                  .make(),
+              TextButton(
+                  onPressed: () {
+                    Navigator.restorablePushReplacementNamed(
+                        context, AutiRoutes.doctorRoute);
+                  },
+                  style: TextButton.styleFrom(primary: context.primaryColor),
+                  child: "See More".text.bold.xl.makeCentered().pOnly(top: 2))
+            ],
+          ).px8()
+        : Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              "Check Out Some Doctors"
+                  .text
+                  .xl2
+                  .color(context.primaryColor)
+                  .bold
+                  .make(),
+              TextButton(
+                  onPressed: () {
+                    Navigator.restorablePushReplacementNamed(
+                        context, AutiRoutes.doctorRoute);
+                  },
+                  style: TextButton.styleFrom(primary: context.primaryColor),
+                  child: "See More".text.lg.makeCentered().pOnly(top: 2)),
+            ],
+          ).px(0);
   }
 }
 
@@ -66,20 +108,35 @@ class ToysSuggestionHead extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        "Check Toys".text.xl2.color(context.primaryColor).bold.make(),
-        TextButton(
-            onPressed: () {
-              Navigator.restorablePushReplacementNamed(
-                  context, AutiRoutes.marketRoute);
-            },
-            style: TextButton.styleFrom(primary: context.primaryColor),
-            child: "See More".text.lg.makeCentered().pOnly(top: 2)),
-      ],
-    ).px8();
+    return Vx.isWeb
+        ? Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              "Check Toys".text.xl4.color(context.primaryColor).bold.make(),
+              TextButton(
+                  onPressed: () {
+                    Navigator.restorablePushReplacementNamed(
+                        context, AutiRoutes.marketRoute);
+                  },
+                  style: TextButton.styleFrom(primary: context.primaryColor),
+                  child: "See More".text.bold.xl.makeCentered().pOnly(top: 2)),
+            ],
+          ).px8()
+        : Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              "Check Toys".text.xl2.color(context.primaryColor).bold.make(),
+              TextButton(
+                  onPressed: () {
+                    Navigator.restorablePushReplacementNamed(
+                        context, AutiRoutes.marketRoute);
+                  },
+                  style: TextButton.styleFrom(primary: context.primaryColor),
+                  child: "See More".text.lg.makeCentered().pOnly(top: 2)),
+            ],
+          ).px8();
   }
 }
 
@@ -88,19 +145,46 @@ class FoodSuggestionHead extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Vx.isWeb
+        ? Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        "Check Food Items".text.xl2.bold.color(context.primaryColor).make(),
+              "Check Food Items"
+                  .text
+                  .xl4
+                  .bold
+                  .color(context.primaryColor)
+                  .make(),
         TextButton(
             onPressed: () {
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => const Market()));
             },
             style: TextButton.styleFrom(primary: context.primaryColor),
-            child: "See More".text.lg.makeCentered().pOnly(top: 2)),
-      ],
-    ).px8();
+                  child: "See More".text.xl.bold.makeCentered().pOnly(top: 2)),
+            ],
+          ).px8()
+        : Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              "Check Food Items"
+                  .text
+                  .xl2
+                  .bold
+                  .color(context.primaryColor)
+                  .make(),
+              TextButton(
+                  onPressed: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Market()));
+                  },
+                  style: TextButton.styleFrom(primary: context.primaryColor),
+                  child: "See More".text.lg.makeCentered().pOnly(top: 2)),
+            ],
+          ).px8();
   }
 }

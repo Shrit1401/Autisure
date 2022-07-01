@@ -17,9 +17,15 @@ class AutismTestButton extends StatelessWidget {
             },
             style: ElevatedButton.styleFrom(
                 primary: context.primaryColor,
+              enableFeedback: true,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(18),
-                )),
+                side: BorderSide(
+                  width: 3,
+                  color: AutiTheme.darkPrimary,
+                ),
+              ),
+            ),
             child:
                 "Check out the test to clarify if your kid is autistic or not"
                     .text
@@ -28,7 +34,7 @@ class AutismTestButton extends StatelessWidget {
                     .color(AutiTheme.white)
                     .xl
                     .make()
-                    .p(8))
+                    .p(20))
         .px12();
   }
 }

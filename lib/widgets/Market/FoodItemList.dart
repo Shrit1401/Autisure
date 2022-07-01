@@ -1,6 +1,8 @@
 // ignore_for_file: must_be_immutable, file_names, deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:money_converter/Currency.dart';
+import 'package:money_converter/money_converter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -8,13 +10,19 @@ import '../../models/food.dart';
 import '../../utilis/themes.dart';
 import '../common/ListImage.dart';
 
-class FoodItemList extends StatelessWidget {
+class FoodItemList extends StatefulWidget {
   FoodInfo item;
   FoodItemList({
     Key? key,
     required this.item,
   }) : super(key: key);
 
+  @override
+  State<FoodItemList> createState() => _FoodItemListState();
+}
+
+class _FoodItemListState extends State<FoodItemList> {
+  String? usdToInr;
   _launchURL(String url) async {
     if (await canLaunch(url)) {
       await launch(url);
@@ -24,20 +32,35 @@ class FoodItemList extends StatelessWidget {
   }
 
   @override
+  void initState() {
+    super.initState();
+    getAmounts();
+  }
+
+  void getAmounts() async {
+    usdToInr ??= "No Price";
+    var usdConvert = await MoneyConverter.convert(
+        Currency(Currency.USD, amount: double.parse(widget.item.price)),
+        Currency(Currency.INR));
+    setState(() {
+      usdToInr = usdConvert.toString().split('.')[0];
+    });
+  }
+  @override
   Widget build(BuildContext context) {
     return VxBox(
         child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        ListImage(image: item.image),
+        ListImage(image: widget.item.image),
         Expanded(
             child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            item.name.text.center.xl.color(AutiTheme.white).bold.make(),
-            item.description.text
+            widget.item.name.text.center.xl.color(AutiTheme.white).bold.make(),
+            widget.item.description.text
                 .textStyle(context.captionStyle)
                 .color(AutiTheme.creamColor)
                 .make(),
@@ -48,7 +71,7 @@ class FoodItemList extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    "\$${item.price}"
+                    "\u{20B9}$usdToInr"
                         .text
                         .color(AutiTheme.white)
                         .xl
@@ -75,7 +98,7 @@ class FoodItemList extends StatelessWidget {
                 ),
                 OutlinedButton(
                   onPressed: () {
-                    _launchURL(item.link);
+                    _launchURL(widget.item.link);
                   },
                   style: OutlinedButton.styleFrom(
                       primary: AutiTheme.white,

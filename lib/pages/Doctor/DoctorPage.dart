@@ -2,7 +2,6 @@
 // ignore_for_file: file_names
 import 'dart:convert';
 
-import 'package:autisure/widgets/common/ContactDeveloper.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:velocity_x/velocity_x.dart';
@@ -83,13 +82,22 @@ class _DoctorState extends State<Doctor> {
                     .make(),
                 DoctorModel.doctorInfos.isNotEmpty
                     ? const Expanded(child: DoctorList())
-                    : ListView.builder(
-                        itemCount: 10,
-                        itemBuilder: (context, index) {
-                          return buildDoctorShimmer();
-                        },
-                      ).expand(),
-                const ContactDev()
+                    : Vx.isWeb
+                        ? GridView.builder(
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2),
+                            itemCount: 10,
+                            itemBuilder: (context, index) {
+                              return buildDoctorShimmer();
+                            },
+                          ).expand()
+                        : ListView.builder(
+                            itemCount: 10,
+                            itemBuilder: (context, index) {
+                              return buildDoctorShimmer();
+                            },
+                          ).expand(),
               ],
             ),
           )),

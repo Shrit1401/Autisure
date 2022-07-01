@@ -13,15 +13,6 @@ import 'DoctorSuggestionList.dart';
 class DoctorSuggestionRow extends StatelessWidget {
   const DoctorSuggestionRow({Key? key}) : super(key: key);
 
-  void doctorDetail(context, DoctorInfo doctorInfo) {
-    Navigator.push(
-        context,
-        PageTransition(
-            type: PageTransitionType.rightToLeft,
-            duration: const Duration(milliseconds: 300),
-            child: DoctorDetailPage(item: doctorInfo)));
-  }
-
   @override
   Widget build(BuildContext context) {
     var rand1 = Random().nextInt(DoctorModel.doctorInfos.length);
@@ -29,28 +20,57 @@ class DoctorSuggestionRow extends StatelessWidget {
     var rand3 = rand1 != rand2
         ? Random().nextInt(DoctorModel.doctorInfos.length)
         : rand2++;
-    return Row(
-      children: [
-        InkWell(
-          onTap: () => doctorDetail(context, DoctorModel.doctorInfos[rand1]),
-          child: DoctorSuggestionList(
-            // genrate random number
-            item: DoctorModel.doctorInfos[rand1],
-          ).pOnly(right: 24),
-        ),
-        InkWell(
-          onTap: () => doctorDetail(context, DoctorModel.doctorInfos[rand2]),
-          child: DoctorSuggestionList(
-            item: DoctorModel.doctorInfos[rand2],
-          ).pOnly(right: 24),
-        ),
-        InkWell(
-          onTap: () => doctorDetail(context, DoctorModel.doctorInfos[rand3]),
-          child: DoctorSuggestionList(
-            item: DoctorModel.doctorInfos[rand3],
-          ).pOnly(right: 24),
-        ),
-      ],
-    );
+    var rand4 = rand3 != rand1
+        ? Random().nextInt(DoctorModel.doctorInfos.length)
+        : rand2++;
+    var rand5 = rand1 != rand2
+        ? Random().nextInt(DoctorModel.doctorInfos.length)
+        : rand2++;
+    var rand6 = rand1 != rand2
+        ? Random().nextInt(DoctorModel.doctorInfos.length)
+        : rand2++;
+    return Vx.isWeb
+        ? Row(
+            children: [
+              doctorCard(context, rand1),
+              doctorCard(context, rand2),
+              doctorCard(context, rand3),
+              doctorCard(context, rand4),
+              doctorCard(context, rand5),
+              doctorCard(context, rand6),
+            ],
+          )
+        : Row(
+            children: [
+              doctorCard(context, rand1),
+              doctorCard(context, rand2),
+              doctorCard(context, rand3),
+            ],
+          );
   }
+}
+
+Widget doctorCard(BuildContext context, int randomNum) {
+  void doctorDetail(context, DoctorInfo doctorInfo) {
+    Vx.isWeb
+        ? Navigator.push(
+            context,
+            PageTransition(
+                type: PageTransitionType.fade,
+                duration: const Duration(milliseconds: 300),
+                child: DoctorDetailPage(item: doctorInfo)))
+        : Navigator.push(
+            context,
+            PageTransition(
+                type: PageTransitionType.rightToLeftWithFade,
+                duration: const Duration(milliseconds: 300),
+                child: DoctorDetailPage(item: doctorInfo)));
+  }
+
+  return InkWell(
+    onTap: () => doctorDetail(context, DoctorModel.doctorInfos[randomNum]),
+    child: DoctorSuggestionList(
+      item: DoctorModel.doctorInfos[randomNum],
+    ).pOnly(right: 24),
+  );
 }

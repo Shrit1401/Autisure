@@ -8,6 +8,7 @@ import 'package:autisure/pages/Test/TestPage.dart';
 import 'package:autisure/pages/homePage.dart';
 import 'package:autisure/utilis/routes.dart';
 import 'package:autisure/utilis/themes.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,6 +28,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        scrollBehavior: AutiScrollBehaviour(),
         title: 'Autisure',
         debugShowCheckedModeBanner: false,
         themeMode: ThemeMode.system,
@@ -45,4 +47,14 @@ class MainPage extends StatelessWidget {
           AutiRoutes.symptomsRoutes: (context) => const Symptoms(),
         });
   }
+}
+
+class AutiScrollBehaviour extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.stylus,
+        PointerDeviceKind.trackpad,
+      };
 }

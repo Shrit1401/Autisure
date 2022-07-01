@@ -8,7 +8,6 @@ import 'package:http/http.dart' as http;
 import 'package:velocity_x/velocity_x.dart';
 
 import '../../widgets/Market/ToysList.dart';
-import '../../widgets/common/ContactDeveloper.dart';
 import '../../widgets/common/DoctorShimmerWidget.dart';
 import '../../widgets/common/ExitPopup.dart';
 
@@ -57,8 +56,6 @@ class _ToysState extends State<Toys> {
                         return buildDoctorShimmer();
                       },
                     ).expand(),
-              const ContactDev()
-
             ],
           ),
         ),

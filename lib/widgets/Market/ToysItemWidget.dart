@@ -44,7 +44,7 @@ class ToysItemWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    "\$${item.price}"
+                    "₹${item.price}"
                         .text
                         .color(AutiTheme.white)
                         .xl
