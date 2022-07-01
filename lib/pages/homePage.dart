@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 import 'package:autisure/models/doctors.dart';
-import 'package:autisure/utilis/themes.dart';
 import 'package:autisure/widgets/common/Drawer/AutiDrawer.dart';
 import 'package:autisure/widgets/common/ExitPopup.dart';
 
@@ -20,6 +19,8 @@ import '../models/toys.dart';
 import '../widgets/Home/DoctorSuggestionRow.dart';
 import '../widgets/Home/HomeBtn.dart';
 import '../widgets/Home/HomePageHeading.dart';
+import '../widgets/common/AppBar/AutiBar.dart';
+import '../widgets/common/DoctorShimmerWidget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -74,7 +75,6 @@ class _HomePageState extends State<HomePage> {
         .toList();
     setState(() {});
   }
-
   @override
   Widget build(BuildContext context) {
     var containerChanged = 30.heightBox;
@@ -82,31 +82,13 @@ class _HomePageState extends State<HomePage> {
       onWillPop: () => showExitPopup(context),
       child: Scaffold(
         backgroundColor: context.backgroundColor,
-        appBar: AppBar(
-            centerTitle: true,
-            backgroundColor: context.primaryColor,
-            elevation: 0,
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(20),
-            )),
-            leading: Builder(
-              builder: (context) => IconButton(
-                icon: Image.asset(
-                  'assets/icons/menu.png',
-                  color: AutiTheme.white,
-                  height: 20,
-                ),
-                onPressed: () => Scaffold.of(context).openDrawer(),
-              ),
-            ),
-            title: 'Autisure'.text.xl3.bold.make()),
+        appBar: autiBar(context),
         drawer: const AutiDrawer(),
         body: SingleChildScrollView(
           child: Column(
             children: [
               const HomePageHeading(),
-              10.heightBox,
+              20.heightBox,
               const AutismTestButton(),
               containerChanged,
               const DoctorSuggestionHead(),
@@ -117,8 +99,7 @@ class _HomePageState extends State<HomePage> {
                     child: DoctorModel.doctorInfos.isNotEmpty
                         ? const DoctorSuggestionRow()
                         : CircularProgressIndicator(color: context.primaryColor)
-                            .centered()
-                            .expand(),
+                              .centered()
                   )),
 
               containerChanged,

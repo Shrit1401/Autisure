@@ -46,8 +46,9 @@ List<TestSingleContent> testContent = [
       info: 'hand-flapping, toe-walking, pacing, or lining up objects'),
   TestSingleContent(
       id: 10,
-      question: "Does your child engage in repetitive behaviors",
-      info: 'hand-flapping, toe-walking, pacing, or lining up objects'),
+      question:
+          "Does your child care how s/he is perceived by the rest of the group?",
+      info: 'groups of their kid bullying, any previous incident'),
   TestSingleContent(
       id: 11,
       question:

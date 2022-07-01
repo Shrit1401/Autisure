@@ -29,7 +29,7 @@ List<OnBoardingScreenStartContent> onboardingContent = [
     image: 'assets/OnBoard/doctorInAPhone.png',
     title: 'Get Query From Nearby and Best Doctors ',
       desc:
-          'we have variety of diffrent typed of doctor for any kind of kind of query your child might have'
+          'we have variety of diffrent types of doctor for any kind of kind of query your child might have'
   ),
   OnBoardingScreenStartContent(
     image: 'assets/OnBoard/sports.png',

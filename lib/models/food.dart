@@ -94,3 +94,8 @@ class FoodInfo {
 class FoodModel {
   static List<FoodInfo> foodInfos = [];
 }
+
+int dollarToRupee(String price) {
+  return int.parse(price) * 70;
+  // return price * 80;
+}

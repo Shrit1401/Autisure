@@ -11,13 +11,23 @@ class ListImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.network(image)
-        .box
-        .rounded
-        .p8
-        .color(AutiTheme.creamColor)
-        .make()
-        .p16()
-        .w40(context);
+    return Vx.isWeb
+        ? Image.network(image)
+            .box
+            .rounded
+            .p8
+            .color(AutiTheme.creamColor)
+            .make()
+            .p16()
+            .hHalf(context)
+            .w40(context)
+        : Image.network(image)
+            .box
+            .rounded
+            .p8
+            .color(AutiTheme.creamColor)
+            .make()
+            .p16()
+            .w40(context);
   }
 }

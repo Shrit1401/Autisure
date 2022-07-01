@@ -1,6 +1,8 @@
 body {
   margin:0;
+  padding: 0;
   height:100%;
+  box-sizing: border-box;
   background: #D61C4E;
   
   background-size: 100% 100%;

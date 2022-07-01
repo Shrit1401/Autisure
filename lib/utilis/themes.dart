@@ -4,7 +4,7 @@ import 'package:velocity_x/velocity_x.dart';
 
 class AutiTheme {
   static ThemeData lightThemeData(BuildContext context) => ThemeData(
-        fontFamily: GoogleFonts.poppins().fontFamily,
+        fontFamily: GoogleFonts.montserrat().fontFamily,
         primaryColor: primary,
         canvasColor: white,
         visualDensity: VisualDensity.adaptivePlatformDensity,

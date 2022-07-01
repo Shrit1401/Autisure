@@ -3,7 +3,6 @@
 
 import 'dart:convert';
 
-import 'package:autisure/widgets/common/ContactDeveloper.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:velocity_x/velocity_x.dart';
@@ -61,7 +60,6 @@ class _FoodState extends State<Food> {
                         return buildDoctorShimmer();
                       },
                     ).expand(),
-              const ContactDev()
             ],
           ),
         )));

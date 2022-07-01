@@ -14,32 +14,81 @@ class DoctorItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Vx.isWeb
+        ? DocorItemCard()
+            .color(context.primaryColor)
+            .shadowSm
+            .rounded
+            .square(100)
+            .make()
+            .p32()
+        // .py16()
+        : DocorItemCard()
+            .color(context.primaryColor)
+            .shadowSm
+            .rounded
+            .square(150)
+            .make()
+            .py16();
+  }
+
+  // ignore: non_constant_identifier_names
+  VxBox DocorItemCard() {
     return VxBox(
-            child: Row(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Hero(tag: Key(item.name), child: ListImage(image: item.imageUrl)),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              "Dr. ${item.name}".text.lg.color(AutiTheme.white).bold.make(),
-              item.specialist.text.color(AutiTheme.creamColor).make(),
-              10.heightBox,
-              DoctorButtonBar(
-                item: item,
+        child: Vx.isWeb
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Hero(
+                      tag: Key(item.name),
+                      child: ListImage(image: item.imageUrl)),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        "Dr. ${item.name}"
+                            .text
+                            .lg
+                            .color(AutiTheme.white)
+                            .bold
+                            .make(),
+                        item.specialist.text.color(AutiTheme.creamColor).make(),
+                        10.heightBox,
+                        DoctorButtonBar(
+                          item: item,
+                        )
+                      ],
+                    ),
+                  ).p16()
+                ],
               )
-            ],
-          ),
-        )
-      ],
-    ))
-        .color(context.primaryColor)
-        .shadowSm
-        .rounded
-        .square(150)
-        .make()
-        .py16();
+            : Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Hero(
+                      tag: Key(item.name),
+                      child: ListImage(image: item.imageUrl)),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        "Dr. ${item.name}"
+                            .text
+                            .lg
+                            .color(AutiTheme.white)
+                            .bold
+                            .make(),
+                        item.specialist.text.color(AutiTheme.creamColor).make(),
+                        10.heightBox,
+                        DoctorButtonBar(
+                          item: item,
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ));
   }
 }

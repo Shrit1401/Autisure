@@ -1,4 +1,4 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, non_constant_identifier_names
 
 import 'package:autisure/utilis/routes.dart';
 import 'package:autisure/utilis/themes.dart';
@@ -33,86 +33,103 @@ class _OnBoardingStartState extends State<OnBoardingStart> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () => showExitPopup(context),
-      child: Scaffold(
-        backgroundColor: context.primaryColor,
-        body: Column(
-          children: [
-            Expanded(
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: onboardingContent.length,
-                onPageChanged: (int index) {
-                  setState(() {
-                    currentIndex = index;
-                  });
-                },
-                itemBuilder: (_, index) {
-                  return Column(children: [
-                    Image.asset(onboardingContent[index].image, height: 300),
-                    40.heightBox,
-                    onboardingContent[index]
-                        .title
-                        .text
-                        .textStyle(const TextStyle(fontWeight: FontWeight.bold))
-                        .xl2
-                        .center
-                        .color(AutiTheme.white)
-                        .make(),
-                    10.heightBox,
-                    onboardingContent[index]
-                        .desc
-                        .text
-                        .lg
-                        .color(AutiTheme.white)
-                        .center
-                        .textStyle(context.captionStyle)
-                        .make()
-                  ]).p32();
-                },
+    return SafeArea(
+      child: WillPopScope(
+        onWillPop: () => showExitPopup(context),
+        child: Scaffold(
+          backgroundColor: context.primaryColor,
+          body: Column(
+            children: [
+              Expanded(
+                child: PageView.builder(
+                  controller: _pageController,
+                  itemCount: onboardingContent.length,
+                  onPageChanged: (int index) {
+                    setState(() {
+                      currentIndex = index;
+                    });
+                  },
+                  itemBuilder: (_, index) {
+                    return Column(children: [
+                      Image.asset(onboardingContent[index].image, height: 300),
+                      40.heightBox,
+                      onboardingContent[index]
+                          .title
+                          .text
+                          .textStyle(
+                              const TextStyle(fontWeight: FontWeight.bold))
+                          .xl2
+                          .center
+                          .color(AutiTheme.white)
+                          .make(),
+                      10.heightBox,
+                      OnBoardStartDescription(index, context)
+                    ]).p32();
+                  },
+                ),
               ),
-            ),
-            Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  onboardingContent.length,
-                  (index) => buildDot(index),
-                )),
-            25.heightBox,
-            Container(
-              height: 60,
-              margin: const EdgeInsets.only(bottom: 40, left: 40, right: 40),
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () {
-                  if (currentIndex != onboardingContent.length - 1) {
-                    _pageController.nextPage(
-                        duration: const Duration(milliseconds: 100),
-                        curve: Curves.bounceIn);
-                  } else {
-                    Navigator.pushNamed(
-                        context, AutiRoutes.onBoardingHomeRoute);
-                  }
-                },
-                style: ElevatedButton.styleFrom(
-                    primary: AutiTheme.white,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16))),
-                child: (currentIndex == onboardingContent.length - 1
-                        ? 'Continue'
-                        : 'Get Started')
-                    .text
-                    .color(context.primaryColor)
-                    .lg
-                    .bold
-                    .make(),
-              ),
-            )
-          ],
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    onboardingContent.length,
+                    (index) => buildDot(index),
+                  )),
+              25.heightBox,
+              Container(
+                height: 60,
+                margin: const EdgeInsets.only(bottom: 40, left: 40, right: 40),
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (currentIndex != onboardingContent.length - 1) {
+                      _pageController.nextPage(
+                          duration: const Duration(milliseconds: 100),
+                          curve: Curves.bounceIn);
+                    } else {
+                      Navigator.pushNamed(
+                          context, AutiRoutes.onBoardingHomeRoute);
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                      primary: AutiTheme.white,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16))),
+                  child: (currentIndex == onboardingContent.length - 1
+                          ? 'Continue'
+                          : 'Get Started')
+                      .text
+                      .color(context.primaryColor)
+                      .lg
+                      .bold
+                      .make(),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
+  }
+
+  Widget OnBoardStartDescription(int index, BuildContext context) {
+    return Vx.isWeb
+        ? onboardingContent[index]
+            .desc
+            .text
+            .lg
+            .color(AutiTheme.white)
+            .center
+            .textStyle(context.captionStyle)
+            .make()
+            .px64()
+        : onboardingContent[index]
+            .desc
+            .text
+            .lg
+            .color(AutiTheme.white)
+            .center
+            .textStyle(context.captionStyle)
+            .make();
   }
 
   Container buildDot(int index) {
